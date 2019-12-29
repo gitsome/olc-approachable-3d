@@ -1,0 +1,35 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+
+    "files.associations": {
+        ".env.*": "dotenv"
+    },
+
+    "search.exclude": {
+      "**/.git": true,
+      "**/build": true,
+      "**/tmp": true
+    },
+
+    "extensions": {
+      "recommendations": [
+        "jack89ita.copy-filename",
+        "dbaeumer.vscode-eslint",
+        "mikestead.dotenv",
+        "eg2.vscode-npm-script",
+        "ms-vscode.vscode-typescript-tslint-plugin",
+        "robinbentley.sass-indented",
+        "bierner.markdown-preview-github-styles"
+      ]
+    }
+  }
+}
