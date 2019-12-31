@@ -30,6 +30,30 @@
         "robinbentley.sass-indented",
         "bierner.markdown-preview-github-styles"
       ]
-    }
+    },
+
+    "yaml.customTags": [
+      "!And",
+      "!If",
+      "!Not",
+      "!Equals",
+      "!Equals sequence",
+      "!Or",
+      "!FindInMap sequence",
+      "!Base64",
+      "!Cidr",
+      "!Ref",
+      "!Sub",
+      "!GetAtt",
+      "!GetAtt sequence",
+      "!GetAZs",
+      "!ImportValue",
+      "!Select",
+      "!Select sequence",
+      "!Split",
+          "!Split sequence",
+      "!Join sequence"
+    ],
+    "yaml.format.enable": true // Enable/disable default YAML formatter (requires restart)
   }
 }
