@@ -7,7 +7,7 @@
   "author": "John David Martin <jmartin@unicon.net>",
   "license": "MIT",
   "scripts": {
-    "build-ui": "cd client && yarn run build",
+    "build-ui": "cd client && yarn install && yarn run build",
     "build-server": "cd server && tsc",
     "build": "npm run build-server && npm run build-ui",
     "postinstall": "npm run build",
