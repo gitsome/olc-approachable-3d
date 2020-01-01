@@ -25,6 +25,7 @@
     "dotenv-expand": "^5.1.0",
     "express": "^4.17.1",
     "fs-extra": "^8.1.0",
+    "ims-lti": "^3.0.2",
     "lokijs": "^1.5.8",
     "node-path-locker": "^1.0.3",
     "passport": "^0.4.1",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@types/express": "^4.17.2",
     "@types/node": "12.12.3",
+    "@types/passport": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^2.3.1",
     "@typescript-eslint/parser": "^2.3.1",
     "eslint": "^6.4.0",
