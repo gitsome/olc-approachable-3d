@@ -67,6 +67,12 @@ This project will need to pull down some dependencies in order to setup the AWS 
 yarn install
 ```
 
+## Create the Heroku App
+
+```bash
+yarn run create
+```
+
 ## Authoring Content
 
 

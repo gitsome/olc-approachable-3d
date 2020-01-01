@@ -3,7 +3,8 @@
 # Edit at https://www.gitignore.io/?templates=code,linux,macos,windows
 
 ### PROJECT SPECIFIC IGNORES ###
-dist
+server/build
+client/build
 node_modules
 
 ### Code ###
