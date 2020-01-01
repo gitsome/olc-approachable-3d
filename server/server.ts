@@ -10,6 +10,7 @@ const app = express();
 // create endpoints to handle LTI Tool Launch Endpoints
 
 // handle requests for static pages
+app.use('static', express.static(path.join(__dirname + '/../../client/build/')));
 
 // serve static files from the React app
 
