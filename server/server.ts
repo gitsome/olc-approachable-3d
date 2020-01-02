@@ -6,6 +6,8 @@ import LTIStrategy from 'passport-lti';
 
 const PORT = process.env.PORT || 3000;
 
+console.log('starting with:', process.env.consumerKey, process.env.consumerSecret);
+
 const strategy = new LTIStrategy({
     consumerKey: process.env.consumerKey,
     consumerSecret: process.env.consumerSecret,
