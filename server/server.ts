@@ -24,6 +24,8 @@ passport.use(strategy);
 // create server
 const app = express();
 
+app.enable('trust proxy');
+
 // body parsing
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
