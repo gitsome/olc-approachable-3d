@@ -31,7 +31,7 @@ app.use('/application', express.static(path.join(__dirname + '/../../client/buil
 
 // create endpoints to handle LTI Tool Launch Endpoints passport.authenticate('lti'),
 app.post('/launch', (req, res) => {
-  console.log('launch request', JSON.stringify(req.body, null, 2));
+  console.log('launch request', req);
   res.send('success');
 });
 
