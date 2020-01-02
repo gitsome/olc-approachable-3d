@@ -38,6 +38,8 @@ app.post('/launch', (req, res, next) => {
       return next(err);
     }
 
+    console.log(user, info);
+
     return res.send('success');
 
   })(req, res, next);
