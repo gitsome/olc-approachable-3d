@@ -1,7 +1,10 @@
 import path from 'path';
 import express from 'express';
+import bodyParser from 'body-parser';
 import passport from 'passport';
 import LTIStrategy from 'passport-lti';
+
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -26,11 +29,14 @@ passport.use(strategy);
 // create server
 const app = express();
 
+// parse request body to json
+app.use(bodyParser.json())
+
 // serve static files from the React app
 app.use('/application', express.static(path.join(__dirname + '/../../client/build')));
 
 // create endpoints to handle LTI Tool Launch Endpoints passport.authenticate('lti'),
-app.post('/launch', (req, res) => {
+app.post('/launch', passport.authenticate('lti'), (req, res) => {
   console.log('launch request', req);
   res.send('success');
 });
