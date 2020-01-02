@@ -30,30 +30,30 @@ app.use(bodyParser.json());
 app.use('/application', express.static(path.join(__dirname + '/../../client/build')));
 
 // create endpoints to handle LTI Tool Launch Endpoints
-app.post('/launch', (req, res, next) => {
+// app.post('/launch', (req, res, next) => {
 
-  console.log('current time', new Date().getTime(), 'oauth time stamp:', req.body.oauth_timestamp);
+//   console.log('current time', new Date().getTime(), 'oauth time stamp:', req.body.oauth_timestamp);
 
-  console.log('request.body:', req.body);
+//   console.log('request.body:', req.body);
 
-  passport.authenticate('lti', (err, user, info) => {
+//   passport.authenticate('lti', (err, user, info) => {
 
-    if (err) {
-      console.log('error:', err);
-      return next(err);
-    }
+//     if (err) {
+//       console.log('error:', err);
+//       return next(err);
+//     }
 
-    console.log('no error:', user, info);
-    return res.send('success');
+//     console.log('no error:', user, info);
+//     return res.send('success');
 
-  })(req, res, next);
-});
-
-
-// app.post('/launch', passport.authenticate('lti'), (req, res) => {
-//   console.log('launch request', req);
-//   res.send('success');
+//   })(req, res, next);
 // });
+
+
+app.post('/launch', passport.authenticate('lti'), (req, res) => {
+  console.log('launch request', req);
+  res.send('success');
+});
 
 // The "catchall" handler: for any request that doesn't match any previous endpoints
 app.get('/application/*', (req, res) => {
