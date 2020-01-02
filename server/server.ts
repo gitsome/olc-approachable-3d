@@ -29,9 +29,9 @@ const app = express();
 // serve static files from the React app
 app.use('/application', express.static(path.join(__dirname + '/../../client/build')));
 
-// create endpoints to handle LTI Tool Launch Endpoints
-app.post('/launch', passport.authenticate('lti'), (req, res) => {
-  console.log('launch request', req);
+// create endpoints to handle LTI Tool Launch Endpoints passport.authenticate('lti'),
+app.post('/launch', (req, res) => {
+  console.log('launch request', JSON.stringify(req.body, null, 2));
   res.send('success');
 });
 
