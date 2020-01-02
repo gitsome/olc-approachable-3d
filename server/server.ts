@@ -22,8 +22,9 @@ passport.use(strategy);
 // create server
 const app = express();
 
-// parse request body to json
-app.use(bodyParser.json())
+// body parsing
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // serve static files from the React app
 app.use('/application', express.static(path.join(__dirname + '/../../client/build')));
