@@ -10,8 +10,7 @@ console.log('starting with:', process.env.consumerKey, process.env.consumerSecre
 
 const strategy = new LTIStrategy({
   consumerKey: process.env.consumerKey,
-  consumerSecret: process.env.consumerSecret,
-  passReqToCallback: true
+  consumerSecret: process.env.consumerSecret
 });
 
 passport.use(strategy);
