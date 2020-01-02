@@ -10,7 +10,6 @@ const strategy = new LTIStrategy({
   consumerKey: process.env.consumerKey,
   consumerSecret: process.env.consumerSecret
 }, (lti: any, done: any) => {
-  console.log('verification nation:', lti);
   return done(null, {
     user_id: lti.user_id
   });
@@ -19,12 +18,10 @@ const strategy = new LTIStrategy({
 passport.use(strategy);
 
 // user serializtion / deserializtion
-passport.serializeUser(function(user, done) {
-  console.log('serialize:', user);
+passport.serializeUser((user, done) => {
   done(null, user);
 });
-passport.deserializeUser(function(user, done) {
-  console.log('deserialize:', user);
+passport.deserializeUser((user, done) => {
   done(null, user);
 });
 
@@ -44,29 +41,7 @@ app.use(passport.initialize());
 // serve static files from the React app
 app.use('/application', express.static(path.join(__dirname + '/../../client/build')));
 
-// create endpoints to handle LTI Tool Launch Endpoints
-// app.post('/launch', (req, res, next) => {
-
-//   console.log('current time', new Date().getTime(), 'oauth time stamp:', req.body.oauth_timestamp);
-
-//   console.log('request.body:', req.body);
-
-//   passport.authenticate('lti', (err, user, info) => {
-
-//     if (err) {
-//       console.log('error:', err);
-//       return next(err);
-//     }
-
-//     console.log('no error:', user, info);
-//     return res.send('success');
-
-//   })(req, res, next);
-// });
-
-
 app.post('/launch', passport.authenticate('lti'), (req, res) => {
-  console.log('launch request', req);
   res.send('success');
 });
 
