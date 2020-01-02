@@ -35,11 +35,12 @@ app.post('/launch', (req, res, next) => {
     if (err) {
       console.log('error:', err);
       console.log(req.body);
+      return next(err);
     }
+
+    return res.send('success');
+
   })(req, res, next);
-}, (req, res) => {
-  console.log('launch request', req);
-  res.send('success');
 });
 
 
