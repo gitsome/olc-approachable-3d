@@ -3,8 +3,9 @@ import express from 'express';
 import passport from 'passport';
 import LTIStrategy from 'passport-lti';
 
-
 const PORT = process.env.PORT || 3000;
+
+console.log('launching with conusmerkey:', process.env.consumerKey);
 
 const strategy = new LTIStrategy({
     consumerKey: process.env.consumerKey,
