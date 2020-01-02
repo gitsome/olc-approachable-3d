@@ -7,8 +7,8 @@ import LTIStrategy from 'passport-lti';
 const PORT = process.env.PORT || 3000;
 
 const strategy = new LTIStrategy({
-    consumerKey: 'testconsumerkey',
-    consumerSecret: 'testconsumersecret'
+    consumerKey: process.env.consumerKey,
+    consumerSecret: process.env.consumerSecret
     // pass the req object to callback
     // passReqToCallback: true,
     // https://github.com/omsmith/ims-lti#nonce-stores
@@ -29,7 +29,10 @@ const app = express();
 app.use('/application', express.static(path.join(__dirname + '/../../client/build')));
 
 // create endpoints to handle LTI Tool Launch Endpoints
-app.post('/launch', passport.authenticate('lti'));
+app.post('/launch', passport.authenticate('lti'), (req, res) => {
+  console.log('launch request', req);
+  res.send('success');
+});
 
 // The "catchall" handler: for any request that doesn't match any previous endpoints
 app.get('/application/*', (req, res) => {

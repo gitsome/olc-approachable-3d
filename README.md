@@ -73,6 +73,15 @@ yarn install
 yarn run create
 ```
 
+## Set Some ENV Variables
+
+```bash
+heroku config:set consumerKey=123456789
+heroku config:set consumerSecret=<your secret>
+```
+
+See [Heroku Config Vars Documentation](https://devcenter.heroku.com/articles/config-vars)
+
 ## Authoring Content
 
 
