@@ -11,7 +11,7 @@ const strategy = new LTIStrategy({
   consumerSecret: process.env.consumerSecret
 }, (lti: any, done: any) => {
   console.log('verification nation:', lti);
-  return done();
+  return done(null, 'dope');
 });
 
 passport.use(strategy);
