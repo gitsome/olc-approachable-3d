@@ -16,6 +16,14 @@ const strategy = new LTIStrategy({
 
 passport.use(strategy);
 
+// user serializtion / deserializtion
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
 // create server
 const app = express();
 
