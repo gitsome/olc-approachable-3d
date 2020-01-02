@@ -9,15 +9,10 @@ const PORT = process.env.PORT || 3000;
 console.log('starting with:', process.env.consumerKey, process.env.consumerSecret);
 
 const strategy = new LTIStrategy({
-    consumerKey: process.env.consumerKey,
-    consumerSecret: process.env.consumerSecret,
-    passReqToCallback: true
-}, (lti: any, done: any) => {
-    // LTI launch parameters
-    console.dir(lti);
-    // Perform local authentication if necessary
-    return done(null, lti);
-}, );
+  consumerKey: process.env.consumerKey,
+  consumerSecret: process.env.consumerSecret,
+  passReqToCallback: true
+});
 
 passport.use(strategy);
 
