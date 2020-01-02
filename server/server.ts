@@ -26,6 +26,9 @@ app.enable('trust proxy');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// allow passport to be used ( must be used after other middleware ) https://stackoverflow.com/questions/16781294/passport-js-passport-initialize-middleware-not-in-use
+app.use(passport.initialize());
+
 // serve static files from the React app
 app.use('/application', express.static(path.join(__dirname + '/../../client/build')));
 
