@@ -16,7 +16,7 @@ Heroku Node.JS Application
 
 ## Libraries / Frameworks Used
 
-This demo stands up a `Node.js` server running as an AWS ECS instance. The `Node.js` can be replaced easily with whatever LTI friendly technology you see fit.
+This demo stands up a `Node.js` server running as a Heroku app. The `Node.js` can be replaced easily with whatever LTI friendly technology you see fit.
 
 ### LTI Tool Provider
 
@@ -71,6 +71,14 @@ yarn install
 
 ```bash
 yarn run create
+```
+
+### Tail the Heroku Logs
+
+Heroku docs can be [viewed here](https://devcenter.heroku.com/articles/heroku-cli-commands).
+
+```bash
+heroku logs -a olc-approachable-3d -t
 ```
 
 ## Set Some ENV Variables

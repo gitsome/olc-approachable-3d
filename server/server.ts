@@ -9,9 +9,12 @@ const PORT = process.env.PORT || 3000;
 const strategy = new LTIStrategy({
   consumerKey: process.env.consumerKey,
   consumerSecret: process.env.consumerSecret
-}, (lti: any, done: any) => {
+}, (ltiData: any, done: any) => {
+
+  console.log('ltiData:', ltiData);
+
   return done(null, {
-    user_id: lti.user_id
+    user_id: ltiData.user_id
   });
 });
 
