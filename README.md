@@ -81,6 +81,12 @@ Heroku docs can be [viewed here](https://devcenter.heroku.com/articles/heroku-cl
 heroku logs -a olc-approachable-3d -t
 ```
 
+### Deploy a Change to Heroku
+
+```bash
+git push heroku master
+```
+
 ## Set Some ENV Variables
 
 ```bash

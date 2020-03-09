@@ -11,7 +11,8 @@ const strategy = new LTIStrategy({
   consumerSecret: process.env.consumerSecret
 }, (ltiData: any, done: any) => {
 
-  console.log('ltiData:', ltiData);
+  console.log('ltiData ===========================================>')
+  console.log(JSON.stringify(ltiData, null, 2));
 
   return done(null, {
     user_id: ltiData.user_id
