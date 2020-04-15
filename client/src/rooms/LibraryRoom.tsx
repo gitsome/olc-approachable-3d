@@ -6,7 +6,7 @@ import fonts from '../fonts/fonts';
 
 import Box from '../components/Box';
 
-const RouteLibrary: React.FC = () => {
+const LibraryRoom: React.FC = () => {
 
   const [opts, setOpts] = useState({
     font: "Philosopher",
@@ -30,9 +30,8 @@ const RouteLibrary: React.FC = () => {
         >
           <meshPhongMaterial attach="material" color={opts.color} />
       </textMesh>
-      {/* <Box position={[3, 0, -5]} /> */}
     </Fragment>
   )
 };
 
-export default RouteLibrary;
+export default LibraryRoom;

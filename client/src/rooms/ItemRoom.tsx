@@ -1,5 +1,4 @@
 import React, { Suspense, Fragment, useState, useEffect, useRef, useMemo } from 'react';
-import { useParams} from "react-router";
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useThree, useLoader, useFrame } from 'react-three-fiber';
@@ -7,10 +6,10 @@ import { useThree, useLoader, useFrame } from 'react-three-fiber';
 import ItemInfoPanel from '../components/ItemInfoPanel';
 import AnnotationPanel from '../components/AnnotationPanel';
 import AnnotationPoint from '../components/AnnotationPoint';
-import MenuBar from '../components/MenuBar';
-import RoundButton from '../components/RoundButton';
 
 import Item, { Annotation } from '../classes/Item';
+
+import useGlobal from '../globalState/global';
 
 import fonts from '../fonts/fonts';
 
@@ -20,25 +19,17 @@ const itemInfoRotation = [0, Math.PI / 3.5, 0];
 const annotationPosition = new THREE.Vector3(2.75, 1.6 + 0.05, -2);
 const annotationRotation = [0, -Math.PI / 3.5, 0];
 
-const libraryButtonPosition = new THREE.Vector3(-0.37, 0, 0);
-
-const rotateLeftButtonPosition = new THREE.Vector3(-0.13, 0, 0);
-const rotateButtonPosition = new THREE.Vector3(0, 0, 0);
-const rotateRightButtonPosition = new THREE.Vector3(0.13, 0, 0);
-
-
 const ITEM_LOCATION = `${process.env.PUBLIC_URL}/assets/items`;
 
-const RouteItem: React.FC = () => {
+interface IItemRoomProps {
+  children?: React.ReactNode;
+  itemId: number;
+}
+
+const ItemRoom: React.FC<IItemRoomProps> = ({itemId}) => {
 
   const [ debugText, setDebugText ] = useState('');
 
-  const [ rotateButtonActive, setRotateButtonActive ] = useState(false);
-
-  const [ rotateLeft, setRotateLeft ] = useState(false);
-  const [ rotateRight, setRotateRight ] = useState(false);
-
-  const { itemId } = useParams();
   const [ item, setItem ] = useState<Item | null>(null);
   const [ itemLoading, setItemLoading ] = useState(true);
 
@@ -49,14 +40,16 @@ const RouteItem: React.FC = () => {
 
   const primRef = useRef<THREE.Object3D>();
 
+  const [ { rotateLeftActive, rotateRightActive, autoRotateActive } ] = useGlobal();
+
   useFrame(({camera}) => {
     // (camera as THREE.PerspectiveCamera).getWorldPosition(temp);
-    setDebugText(`temp:`);
+    setDebugText(``);
     if (primRef && primRef.current) {
 
-      const rotateValue = (rotateRight || rotateButtonActive) ? - 0.01 : 0.01;
+      const rotateValue = (rotateRightActive || autoRotateActive) ? - 0.01 : 0.01;
 
-      if (rotateRight || rotateButtonActive || rotateLeft) {
+      if (rotateLeftActive || rotateRightActive || autoRotateActive) {
 
         primRef.current.rotation.y = primRef.current.rotation.y + rotateValue * ((item && item.rotateY) || 0);
         primRef.current.rotation.x = primRef.current.rotation.x + rotateValue * ((item && item.rotateX) || 0);
@@ -142,18 +135,8 @@ const RouteItem: React.FC = () => {
         </Fragment>
       )}
 
-      <MenuBar width={1.0}>
-
-        <RoundButton position={libraryButtonPosition} fontPath={fonts.FontAwesome} paddingBottom={0.007} width={0.15} text="&#xf66f;"/>
-
-        <RoundButton position={rotateLeftButtonPosition} fontPath={fonts.FontAwesome} paddingBottom={0.007} width={0.12} text="&#xf0e2;" fontScale={0.65} onDownChanged={setRotateLeft} />
-        <RoundButton position={rotateButtonPosition} selected={rotateButtonActive} onSelectChange={setRotateButtonActive} fontPath={fonts.FontAwesome} paddingBottom={0.007} width={0.12} text="&#xf021;" />
-        <RoundButton position={rotateRightButtonPosition} fontPath={fonts.FontAwesome} paddingBottom={0.007} width={0.12} text="&#xf01e;" fontScale={0.65} onDownChanged={setRotateRight} />
-
-      </MenuBar>
-
     </Fragment>
   )
 };
 
-export default RouteItem
+export default ItemRoom;
