@@ -3,6 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import passport from 'passport';
 import LTIStrategy from 'passport-lti';
+import session from 'express-session';
 
 const PORT = process.env.PORT || 3000;
 
@@ -35,6 +36,13 @@ const app = express();
 // avoid signature failure for LTI https://github.com/omsmith/ims-lti/issues/4
 app.enable('trust proxy');
 
+// in memory sessions for demo
+app.use(session({
+  secret: 'demo',
+  resave: false,
+  saveUninitialized: true,
+}));
+
 // body parsing
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -46,11 +54,17 @@ app.use(passport.initialize());
 app.use('/application', express.static(path.join(__dirname + '/../../client/build')));
 
 app.post('/launch', passport.authenticate('lti'), (req, res) => {
+
+  // todo res.redirect('/application?view=')
   res.send('success');
 });
 
 // The "catchall" handler: for any request that doesn't match any previous endpoints
 app.get('/application/*', (req, res) => {
+
+  // todo verify that there is user info on the request
+  console.log('req:', req);
+
   res.sendFile(path.join(__dirname + '/../../client/build/index.html'));
 });
 

@@ -1,0 +1,203 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v0.9.4",
+        "version" : "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "OSG_Scene",
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "nodes": [
+        {
+        "children": [
+            1
+        ],
+        "name": "RootNode (gltf orientation matrix)",
+        "rotation": [
+            -0.70710678118654746,
+            -0,
+            -0,
+            0.70710678118654757
+        ]
+        },
+        {
+        "children": [
+            2
+        ],
+        "name": "RootNode (model correction matrix)"
+        },
+        {
+        "children": [
+            3
+        ],
+        "name": "mushroom_04.obj.cleaner.materialmerger.gles"
+        },
+        {
+        "mesh": 0,
+        "name": ""
+        }
+    ],
+    "extensionsRequired": [
+        "KHR_materials_pbrSpecularGlossiness"
+    ],
+    "extensionsUsed": [
+        "KHR_materials_pbrSpecularGlossiness"
+    ],
+    "images": [
+      {
+      "uri": "textures/moshroom_04_diffuse_small.jpg"
+      },
+      {
+      "uri": "textures/moshroom_04_normal_small.jpg"
+      },
+      {
+      "uri": "textures/moshroom_04_specularGlossiness_small.png"
+      }
+    ],
+    "textures": [
+        {
+        "sampler": 0,
+        "source": 0
+        },
+        {
+        "sampler": 0,
+        "source": 1
+        },
+        {
+        "sampler": 0,
+        "source": 2
+        }
+    ],
+    "materials": [
+        {
+        "doubleSided": true,
+        "extensions": {
+            "KHR_materials_pbrSpecularGlossiness": {
+            "diffuseFactor": [
+                1,
+                1,
+                1,
+                1
+            ],
+            "diffuseTexture": {
+                "index": 0,
+                "texCoord": 0
+            },
+            "glossinessFactor": 1,
+            "specularFactor": [
+                0,
+                0,
+                0
+            ],
+            "specularGlossinessTexture": {
+                "index": 2,
+                "texCoord": 0
+            }
+            }
+        },
+        "name": "moshroom_04",
+        "normalTexture": {
+            "index": 1,
+            "scale": 0.77000762199999995,
+            "texCoord": 0
+        }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Mesh_0",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TANGENT" : 2,
+                        "TEXCOORD_0" : 3
+                    },
+                    "indices" : 4,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 10035,
+            "max" : [
+                10.799972534179688,
+                12.413127899169922,
+                32.11534881591797
+            ],
+            "min" : [
+                -14.290437698364258,
+                -11.600536346435547,
+                -1.8424932956695557
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 10035,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 10035,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 10035,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5123,
+            "count" : 47019,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 120420,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 120420,
+            "byteOffset" : 120420
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 160560,
+            "byteOffset" : 240840
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 80280,
+            "byteOffset" : 401400
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 94038,
+            "byteOffset" : 481680
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 575720,
+            "uri" : "scene.bin"
+        }
+    ]
+}

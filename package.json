@@ -7,6 +7,7 @@
   "author": "John David Martin <jmartin@unicon.net>",
   "license": "MIT",
   "scripts": {
+    "develop": "",
     "build-ui": "cd client && yarn install && yarn run build",
     "build-server": "cd server && tsc",
     "build": "npm run build-server && npm run build-ui",
@@ -19,12 +20,14 @@
     "node": "10.x.x"
   },
   "dependencies": {
+    "@types/express-session": "^1.17.0",
     "aws-sdk": "^2.596.0",
     "body-parser": "^1.19.0",
     "chalk": "^3.0.0",
     "dotenv": "^8.2.0",
     "dotenv-expand": "^5.1.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
     "fs-extra": "^8.1.0",
     "ims-lti": "^3.0.2",
     "lokijs": "^1.5.8",

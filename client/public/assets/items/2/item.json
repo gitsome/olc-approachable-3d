@@ -1,0 +1,31 @@
+{
+  "name": "Caffeine Molecule",
+  "description": [
+    "Caffeine is a xanthine alkaloid compound that temporarily wards off drowsiness and restores alertness in humans.",
+    "Caffeine is sometimes called guaranine when found in guarana, mateine when found in mate, and theine when found in tea.",
+    "It is found in the leaves and beans of the coffee plant, in tea, yerba mate, and guarana berries, and in small quantities in cocoa, the kola nut and the Yaupon Holly."
+  ],
+  "model": {
+    "type": "gltf",
+    "location": "scene.gltf",
+    "rotation": [0,0,0],
+    "translation": [0,0,0],
+    "scale": 1
+  },
+  "pointers": [
+    {
+      "x": 0,
+      "y": 0,
+      "z": -0.5,
+      "label": "Label 1",
+      "description": ["This is a paragraph.", "This is another paragraph"]
+    },
+    {
+      "x": -0.5,
+      "y": 0,
+      "z": -0.5,
+      "label": "Label 2",
+      "description": ["This is a paragraph.", "This is another paragraph"]
+    }
+  ]
+}

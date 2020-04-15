@@ -1,2 +1,10 @@
 @import './scss/styleVariables.scss';
+html, body {
+  background: black;
+}
 .app {}
+
+.vr-button {
+  top: 15px;
+  bottom: auto !important;
+}

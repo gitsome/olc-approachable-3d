@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/johnmartin/.nvm/versions/node/v10.16.0/bin/node /usr/local/bin/yarn add @types/passport-lti -D
+  /Users/johnmartin/.nvm/versions/node/v10.16.0/bin/node /usr/local/bin/yarn add @types/ims-lti
 
 PATH: 
   /Library/Frameworks/Python.framework/Versions/3.6/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/Users/johnmartin/.nvm/versions/node/v10.16.0/bin:/Users/johnmartin/Desktop/tools/mongodb/bin:/Users/johnmartin/Library/Python/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/johnmartin/Desktop/unicon/projects/scholastic/apache-maven-3.6.1/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fpassport-lti: Not found
+  Error: https://registry.yarnpkg.com/@types%2fims-lti: Not found
       at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66058:18)
       at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:129541:22)
       at Request.emit (events.js:198:13)
@@ -49,6 +49,7 @@ npm manifest:
     },
     "dependencies": {
       "aws-sdk": "^2.596.0",
+      "body-parser": "^1.19.0",
       "chalk": "^3.0.0",
       "dotenv": "^8.2.0",
       "dotenv-expand": "^5.1.0",
@@ -347,7 +348,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.3.1.tgz#58ece8cb75dd07e71ed08c736abc5fac4dbf8df1"
     integrity sha512-mLQ4i2QO1ytvGWFWmcngKO//JXAQueZvwEKtjgQFM4jIK0kU+ytMfplL8j+n5mspOfjHwoAg+9yhb7BwAHm36g==
   
-  body-parser@1.19.0:
+  body-parser@1.19.0, body-parser@^1.19.0:
     version "1.19.0"
     resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.19.0.tgz#96b2709e57c9c4e09a6fd66a8fd979844f69f08a"
     integrity sha512-dhEPs72UPbDnAQJ9ZKMNTP6ptJaionhP5cBb541nXPlW60Jepo9RV/a4fX4XWW9CuFNK22krhrj1+rgzifNCsw==

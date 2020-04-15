@@ -1,0 +1,31 @@
+{
+  "name": "Human Skull Sutures",
+  "description": [
+    "Sutures or \"fibrous joints\" are junctions (or lines of articulation) between adjacent bones of the skull.",
+    "Fibrous joints are connected by dense connective tissue, consisting mainly of collagen. These are fixed joints where bones are united by a layer of white fibrous tissue of varying thickness.",
+    "In the skull the joints between the bones are called sutures. Such immovable joints are also referred to as synarthroses."
+  ],
+  "model": {
+    "type": "gltf",
+    "location": "scene.gltf",
+    "rotation": [0, -1.579, 0],
+    "translation": [0, 0.25, 0],
+    "scale": 0.25
+  },
+  "pointers": [
+    {
+      "x": 0,
+      "y": 0,
+      "z": -0.5,
+      "label": "Label 1",
+      "description": ["This is a paragraph.", "This is another paragraph"]
+    },
+    {
+      "x": -0.5,
+      "y": 0,
+      "z": -0.5,
+      "label": "Label 2",
+      "description": ["This is a paragraph.", "This is another paragraph"]
+    }
+  ]
+}

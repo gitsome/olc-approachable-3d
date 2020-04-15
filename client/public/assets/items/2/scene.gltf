@@ -1,0 +1,410 @@
+{
+  "accessors": [
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 704,
+      "max": [
+        0.30162701010704041,
+        0.34557598829269409,
+        0.50723499059677124
+      ],
+      "min": [
+        -0.48105901479721069,
+        -0.22876100242137909,
+        -0.40115100145339966
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 8448,
+      "componentType": 5126,
+      "count": 704,
+      "max": [
+        0.99908202886581421,
+        0.99984633922576904,
+        0.99300366640090942
+      ],
+      "min": [
+        -0.99908214807510376,
+        -0.99984622001647949,
+        -0.9930034875869751
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 2856,
+      "max": [
+        703
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 16896,
+      "componentType": 5126,
+      "count": 212,
+      "max": [
+        0.60349100828170776,
+        0.17045499384403229,
+        0.036881998181343079
+      ],
+      "min": [
+        -0.20047999918460846,
+        -0.43663200736045837,
+        -0.54222798347473145
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 19440,
+      "componentType": 5126,
+      "count": 212,
+      "max": [
+        0.97556126117706299,
+        0.98187023401260376,
+        0.99232912063598633
+      ],
+      "min": [
+        -0.97556126117706299,
+        -0.98187023401260376,
+        -0.99232912063598633
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 11424,
+      "componentType": 5125,
+      "count": 1008,
+      "max": [
+        211
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 21984,
+      "componentType": 5126,
+      "count": 1608,
+      "max": [
+        0.44930899143218994,
+        0.49096301198005676,
+        0.57887601852416992
+      ],
+      "min": [
+        -0.6527400016784668,
+        -0.3540709912776947,
+        -0.61435699462890625
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 41280,
+      "componentType": 5126,
+      "count": 1608,
+      "max": [
+        0.99923062324523926,
+        0.99999314546585083,
+        0.99974048137664795
+      ],
+      "min": [
+        -0.99923062324523926,
+        -0.99999314546585083,
+        -0.99974048137664795
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 15456,
+      "componentType": 5125,
+      "count": 6312,
+      "max": [
+        1607
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 60576,
+      "componentType": 5126,
+      "count": 1060,
+      "max": [
+        0.59617400169372559,
+        0.60923200845718384,
+        0.68161600828170776
+      ],
+      "min": [
+        -0.76020002365112305,
+        -0.48271700739860535,
+        -0.71302998065948486
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 73296,
+      "componentType": 5126,
+      "count": 1060,
+      "max": [
+        0.98201775550842285,
+        0.99778074026107788,
+        0.99047660827636719
+      ],
+      "min": [
+        -0.9820176362991333,
+        -0.99778074026107788,
+        -0.99047648906707764
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 40704,
+      "componentType": 5125,
+      "count": 5040,
+      "max": [
+        1059
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Paul Bourke (https://sketchfab.com/pbourke)",
+      "license": "SKETCHFAB Standard (https://sketchfab.com/licenses)",
+      "source": "https://sketchfab.com/3d-models/caffeine-molecule-c5db51ac1c6c48a19a3eabc86a9e4461",
+      "title": "Caffeine molecule"
+    },
+    "generator": "Sketchfab-7.27.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 60864,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 86016,
+      "byteOffset": 60864,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 146880,
+      "uri": "scene.bin"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "vmd_mat_cindex_0",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0,
+          0,
+          0.65000000000000002,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.99092133063768917
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "vmd_mat_cindex_1",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.65000000000000002,
+          0,
+          0,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.97326696528494083
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "vmd_mat_cindex_10",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.16,
+          0.48999999999999999,
+          0.48999999999999999,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.91833623739592773
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "vmd_mat_cindex_8",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.65000000000000002,
+          0.65000000000000002,
+          0.65000000000000002,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.87425665703170652
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0
+          },
+          "indices": 2,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 4,
+            "POSITION": 3
+          },
+          "indices": 5,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 7,
+            "POSITION": 6
+          },
+          "indices": 8,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 10,
+            "POSITION": 9
+          },
+          "indices": 11,
+          "material": 3,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "name": "caffeine.obj.cleaner.materialmerger.gles"
+    },
+    {
+      "mesh": 0,
+      "name": ""
+    },
+    {
+      "mesh": 1,
+      "name": ""
+    },
+    {
+      "mesh": 2,
+      "name": ""
+    },
+    {
+      "mesh": 3,
+      "name": ""
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,31 @@
+{
+  "name": "Skin Anatomy",
+  "description": [
+    "The skin is the largest organ of the body, with a total area of about 20 square feet. It weighs 9 lbs and contains more than 11 miles of blood vessels.",
+    "The skin protects us from microbes and the elements, helps regulate body temperature, and permits the sensations of touch, heat, and cold.",
+    "Your skin has at least five different types of receptors that respond to pain and touch."
+  ],
+  "model": {
+    "type": "gltf",
+    "location": "scene.gltf",
+    "rotation": [0, -1.579, 0],
+    "translation": [0.75 , 0.6 , -0.1],
+    "scale": 0.06
+  },
+  "pointers": [
+    {
+      "x": 0,
+      "y": 0,
+      "z": -0.5,
+      "label": "Label 1",
+      "description": ["This is a paragraph.", "This is another paragraph"]
+    },
+    {
+      "x": -0.5,
+      "y": 0,
+      "z": -0.5,
+      "label": "Label 2",
+      "description": ["This is a paragraph.", "This is another paragraph"]
+    }
+  ]
+}
