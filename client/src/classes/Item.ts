@@ -21,6 +21,9 @@ class Item {
   public description: string[] = [''];
   public model: Model = new Model();
   public annotations: Annotation[] = [];
+  public rotateX: number = 0;
+  public rotateY: number = 0;
+  public rotateZ: number = 0;
 }
 
 export default Item;

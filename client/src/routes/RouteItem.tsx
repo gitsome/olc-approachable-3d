@@ -54,17 +54,19 @@ const RouteItem: React.FC = () => {
     setDebugText(`temp:`);
     if (primRef && primRef.current) {
 
-      if (rotateButtonActive || rotateRight) {
-        primRef.current.rotation.y = primRef.current.rotation.y - 0.01;
-      } else if (rotateLeft) {
-        primRef.current.rotation.y = primRef.current.rotation.y + 0.01;
+      const rotateValue = (rotateRight || rotateButtonActive) ? - 0.01 : 0.01;
+
+      if (rotateRight || rotateButtonActive || rotateLeft) {
+
+        primRef.current.rotation.y = primRef.current.rotation.y + rotateValue * ((item && item.rotateY) || 0);
+        primRef.current.rotation.x = primRef.current.rotation.x + rotateValue * ((item && item.rotateX) || 0);
+        primRef.current.rotation.z = primRef.current.rotation.z + rotateValue * ((item && item.rotateZ) || 0);
+
       }
     }
   });
 
   useEffect(() => {
-
-    console.log("word:", `${ITEM_LOCATION}/${itemId}/item.json`);
 
     fetch(`${ITEM_LOCATION}/${itemId}/item.json`).then((resp) => {
       return resp.json();
@@ -73,7 +75,6 @@ const RouteItem: React.FC = () => {
       setItem(itemJson);
       setItemLoading(false);
     });
-
   }, []);
 
   const [opts, setOpts] = useState({

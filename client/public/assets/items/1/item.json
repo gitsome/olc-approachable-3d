@@ -12,6 +12,7 @@
     "translation": [0,-0.75, 0.25],
     "scale": 0.013
   },
+  "rotateY": 1,
   "annotations": [
     {
       "x": 5,

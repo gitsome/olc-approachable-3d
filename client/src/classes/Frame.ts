@@ -24,7 +24,7 @@ class Frame {
 
     outerShape.holes = [innerShape];
 
-    const extrudeSettings = { amount: depth, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 0.0010, bevelThickness: 0.001 };
+    const extrudeSettings = { depth: depth, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 0.0010, bevelThickness: 0.001 };
 
     return new THREE.ExtrudeBufferGeometry( outerShape, extrudeSettings );
   }

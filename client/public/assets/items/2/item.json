@@ -8,28 +8,35 @@
   "model": {
     "type": "gltf",
     "location": "scene.gltf",
-    "rotation": [0,0,0],
+    "rotation": [3.14 ,3.64,0],
     "translation": [0,0,0],
     "scale": 1
   },
+  "rotateY": 1,
   "annotations": [
     {
-      "x": 0,
-      "y": 0,
-      "z": -0.5,
+      "x": 0.5,
+      "y": -0.2,
+      "z": 0.5,
       "color": "#ffc106",
       "highlightColor": "#ff6100",
-      "label": "Label 1",
-      "description": ["This is a paragraph.", "This is another paragraph"]
+      "label": "Dipole-Dipole Forces",
+      "description": [
+        "Caffeine is a polar molecule",
+        "This point is the negative charged side of the molecule."
+      ]
     },
     {
-      "x": -0.5,
+      "x": -0.2,
       "y": 0,
-      "z": -0.5,
+      "z": 0.2,
       "color": "#ffc106",
       "highlightColor": "#ff6100",
-      "label": "Label 2",
-      "description": ["This is a paragraph.", "This is another paragraph"]
+      "label": "London Dispersion Forces",
+      "description": [
+        "Caffiene exhibits strong London Dispersion forces.",
+        "This makes it difficult to break the molecule apart, therefore more energy is needed causing a high melting and boiling point. The Melting point is 235 degrees Celsius and the boiling point is 178 degrees Celsius."
+      ]
     }
   ]
 }

@@ -8,24 +8,63 @@
   "model": {
     "type": "gltf",
     "location": "scene.gltf",
-    "rotation": [0, -1.579, 0],
-    "translation": [-0.12, 0.25, 0],
+    "rotation": [0, -0.3 ,0],
+    "translation": [0.1, -0.5, 0],
     "scale": 0.25
   },
+  "rotateZ": 1,
+  "rotateY": 0.75,
   "annotations": [
     {
-      "x": 0,
-      "y": 0,
-      "z": -0.5,
-      "label": "Label 1",
-      "description": ["This is a paragraph.", "This is another paragraph"]
+      "x": 0.5,
+      "y": 1,
+      "z": 1.9,
+      "label": "Sqamos Suture",
+      "description": [
+        "The squamosal suture connects the temporal squama together with the lower boundary of the parietal and arches posteriorly from the pterion.",
+        "This suture is constant posteriorly with the short, nearly horizontal parietomastoid suture that merges the mastoid process of the temporal with the mastoid angle of the parietal."
+      ]
     },
     {
-      "x": -0.5,
-      "y": 0,
+      "x": 0.2,
+      "y": 3.3,
+      "z": 1.2,
+      "label": "Caronal Suture",
+      "description": [
+        "The coronal suture is a dense and fibrous association of connection tissue located in between the frontal and parietal bones of the skull.",
+        "At birth, the sutures decrease in size (molding) and allow the skull to become smaller.",
+        "In children, the suture enables the skull to expand with the rapidly growing brain. The suture will close and fuse around age 24."
+      ]
+    },
+    {
+      "x": -2,
+      "y": 3.4,
       "z": -0.5,
-      "label": "Label 2",
-      "description": ["This is a paragraph.", "This is another paragraph"]
+      "label": "Sagittal Suture",
+      "description": [
+        "The sagittal suture is a dense, fibrous connective tissue joint between the two parietal bones of the skull.",
+        "The term is derived from the Latin word sagitta, meaning arrow. The derivation of this term may be demonstrated by observing how the sagittal suture is notched posteriorly, like an arrow, by the lambdoid suture.",
+        "The sagittal suture is also known as the interparietal suture, the sutura interparietalis."
+      ]
+    },
+    {
+      "x": -2.65,
+      "y": 0.3,
+      "z": -1.7,
+      "label": "Labmdoid Suture",
+      "description": [
+        "The lambdoid suture (or lambdoidal suture) is a dense, fibrous connective tissue joint on the posterior aspect of the skull that connects the parietal bones with the occipital bone.",
+        "It is continuous with the occipitomastoid suture. Its name comes from its lambda-like shape."
+      ]
+    },
+    {
+      "x": -1.2,
+      "y": -1.0,
+      "z": -2.3,
+      "label": "Occipitomastoid Suture",
+      "description": [
+        "The occipitomastoid suture or occipitotemporal suture is the cranial suture between the occipital bone and the mastoid portion of the temporal bone. It is continuous with the lambdoidal suture."
+      ]
     }
   ]
 }

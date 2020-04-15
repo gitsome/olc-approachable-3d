@@ -12,20 +12,37 @@
     "translation": [0.75 , 0.6 , -0.1],
     "scale": 0.06
   },
+  "rotateY": 1,
   "annotations": [
     {
-      "x": 0,
-      "y": 0,
+      "x": -4.5,
+      "y": -10,
       "z": -0.5,
-      "label": "Label 1",
-      "description": ["This is a paragraph.", "This is another paragraph"]
+      "label": "Sweat Gland",
+      "description": [
+        "Sweat glands, also known as sudoriferous or sudoriparous glands, from Latin sudor, meaning 'sweat', are small tubular structures of the skin that produce sweat.",
+        "Sweat glands are a type of exocrine gland, which are glands that produce and secrete substances onto an epithelial surface by way of a duct."
+      ]
     },
     {
-      "x": -0.5,
-      "y": 0,
-      "z": -0.5,
-      "label": "Label 2",
-      "description": ["This is a paragraph.", "This is another paragraph"]
+      "x": 0.5,
+      "y": -7,
+      "z": -0.25,
+      "label": "Hair Folicle",
+      "description": [
+        "A hair follicle is a part of the skin, which grows a hair by packing old cells together.",
+        "Attached inside the top of the follicle are sebaceous glands, which are tiny sebum-producing glands in almost all skin except on the palms, lips and soles of the feet."
+      ]
+    },
+    {
+      "x": 8,
+      "y": -18,
+      "z": -0.25,
+      "label": "Fat Cells",
+      "description": [
+        "Fat, or adipose tissue, is found in several places in your body. Generally, fat is found underneath your skin (subcutaneous fat).",
+        "There is also some on top of each of your kidneys. In addition to fat tissue, some fat is stored in the liver, and an even smaller amount in muscle."
+      ]
     }
   ]
 }
