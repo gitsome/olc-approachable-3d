@@ -1,9 +1,10 @@
-import React, { useRef, useState, Children } from 'react';
+import React, { Fragment, useRef, useState, Children } from 'react';
 import * as THREE from 'three';
 import { useCamera, useFrame } from 'react-three-fiber'
 
-import Item from '../classes/Item';
+import { Annotation } from '../classes/Item';
 
+import AnnotationPoint from './AnnotationPoint';
 import Frame from '../classes/Frame';
 import fonts from '../fonts/fonts';
 
@@ -14,22 +15,24 @@ const WHITEBOARD_BORDER_WIDTH = 0.1;
 const TITLE_FONT_SIZE = 0.25;
 const DESCRIPTION_FONT_SIZE = 0.125;
 
-interface IItemInfoPanelProps {
+const annotationExamplePosition = new THREE.Vector3(-0.275, 0.52, 0);
+
+interface IAnnotationPanelProps {
   children?: React.ReactNode;
   width?: number;
   height?: number;
   position: THREE.Vector3;
   rotation: number[];
-  item: Item;
+  annotation: Annotation | null;
 }
 
-const ItemInfoPanel: React.FC<IItemInfoPanelProps> = ({
+const AnnotationPanel: React.FC<IAnnotationPanelProps> = ({
   children,
   width = 3,
   height = 2.5,
   position = new THREE.Vector3(0,0,0),
   rotation = [0,0,0],
-  item
+  annotation = new Annotation()
 }) => {
 
   const frame = useRef(Frame.generateFrame(width, height, 0.1, WHITEBOARD_BORDER_WIDTH));
@@ -43,11 +46,12 @@ const ItemInfoPanel: React.FC<IItemInfoPanelProps> = ({
 
   const [titleOpts] = useState({
     fontSize: TITLE_FONT_SIZE,
-    color: "#444444",
     maxWidth: width - 2 * WHITEBOARD_BORDER_WIDTH - 2 * WHITEBOARD_CONTENT_PADDING,
-    textAlign: "center",
+    textAlign: "left",
     materialType: "MeshPhongMaterial"
   });
+
+  const titleColor = (annotation && annotation.highlightColor) ? annotation.highlightColor : "#007bff";
 
   const [descriptionOpts] = useState({
     fontSize: DESCRIPTION_FONT_SIZE,
@@ -71,32 +75,54 @@ const ItemInfoPanel: React.FC<IItemInfoPanelProps> = ({
       </mesh>
 
       <group position={[0,0, 0.01]}>
-        <textMesh
-          position={[0, TITLE_START, 0]}
-          {...titleOpts}
-          font={fonts.Whiteboard}
-          text={item.name}
-          anchor={[0.5, 0.5]}
-          frustumCulled={false}
-        />
 
-        { item.description.map((desc, index) => {
-          return (
+        { annotation !== null && (
+          <Fragment>
             <textMesh
-              key={index}
-              position={[-CONTENT_WIDTH/2, CONTENT_START - index * (CONTENT_HEIGHT / 3) , 0]}
-              {...descriptionOpts}
+              position={[-CONTENT_WIDTH/2, TITLE_START, 0]}
+              {...titleOpts}
+              color={titleColor}
               font={fonts.Whiteboard}
-              text={desc}
+              text={annotation.label}
               anchor={[0, 0.5]}
               frustumCulled={false}
-            />
-          );
-        })}
+            ></textMesh>
+
+            { annotation.description.map((desc, index) => {
+              return (
+                <textMesh
+                  key={index}
+                  position={[-CONTENT_WIDTH/2, CONTENT_START - index * (CONTENT_HEIGHT / 3) , 0]}
+                  {...descriptionOpts}
+                  font={fonts.Whiteboard}
+                  text={desc}
+                  anchor={[0, 0.5]}
+                  frustumCulled={false}
+                />
+              );
+            })}
+          </Fragment>
+        )}
+
+        { annotation == null && (
+          <Fragment>
+            <AnnotationPoint position={annotationExamplePosition} rotate={false} />
+            <textMesh
+                position={[-CONTENT_WIDTH/2, CONTENT_START, 0]}
+                {...descriptionOpts}
+                font={fonts.Whiteboard}
+                text={'Click an annotation ( - ) to view additional information.'}
+                anchor={[0, 0.5]}
+                frustumCulled={false}
+            ></textMesh>
+          </Fragment>
+        )}
+
+
       </group>
 
     </group>
   )
 };
 
-export default ItemInfoPanel;
+export default AnnotationPanel;

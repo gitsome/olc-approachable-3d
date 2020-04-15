@@ -1,0 +1,31 @@
+{
+  "name": "Mushroom Anatomy",
+  "description": [
+    "The mature fruiting body can have various structures. The fruiting body may contain a cap, stalk, ring, volva, and gills.",
+    "The cap normally houses the spore producing surface of the fruiting body.",
+    "Click the annotations to learn more about mushroom anatomy..."
+  ],
+  "model": {
+    "type": "gltf",
+    "location": "model/scene.gltf",
+    "rotation": [0,0,0],
+    "translation": [0,-0.75,0],
+    "scale": 0.05
+  },
+  "annotations": [
+    {
+      "x": 0,
+      "y": 0,
+      "z": -0.5,
+      "label": "Label 1",
+      "description": ["This is a paragraph.", "This is another paragraph"]
+    },
+    {
+      "x": -0.5,
+      "y": 0,
+      "z": -0.5,
+      "label": "Label 2",
+      "description": ["This is a paragraph.", "This is another paragraph"]
+    }
+  ]
+}

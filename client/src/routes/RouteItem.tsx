@@ -5,15 +5,20 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useThree, useLoader, useFrame } from 'react-three-fiber';
 
 import ItemInfoPanel from '../components/ItemInfoPanel';
+import AnnotationPanel from '../components/AnnotationPanel';
+import AnnotationPoint from '../components/AnnotationPoint';
 import MenuBar from '../components/MenuBar';
 import RoundButton from '../components/RoundButton';
 
-import Item from '../classes/Item';
+import Item, { Annotation } from '../classes/Item';
 
 import fonts from '../fonts/fonts';
 
 const itemInfoPosition = new THREE.Vector3(-2.75, 1.6 + 0.05, -2);
 const itemInfoRotation = [0, Math.PI / 3.5, 0];
+
+const annotationPosition = new THREE.Vector3(2.75, 1.6 + 0.05, -2);
+const annotationRotation = [0, -Math.PI / 3.5, 0];
 
 const libraryButtonPosition = new THREE.Vector3(-0.37, 0, 0);
 
@@ -36,6 +41,8 @@ const RouteItem: React.FC = () => {
   const { itemId } = useParams();
   const [ item, setItem ] = useState<Item | null>(null);
   const [ itemLoading, setItemLoading ] = useState(true);
+
+  const [ annotation, setAnnotation ] = useState<Annotation | null>(null);
 
   const [ modelLoading, setModelLoading ] = useState(true);
   const [ modelScene, setModelScene ] = useState<THREE.Group | null>(null);
@@ -113,9 +120,24 @@ const RouteItem: React.FC = () => {
       { !itemLoading && item !== null && !modelLoading && (
         <Fragment>
           <group position={[0, 1.6, -2.5]} ref={primRef}>
-            <primitive object={modelScene} position={item.model.translation} scale={[item.model.scale, item.model.scale, item.model.scale]} rotation={item.model.rotation} />
+            <group position={item.model.translation} scale={[item.model.scale, item.model.scale, item.model.scale]} rotation={item.model.rotation}>
+              <primitive object={modelScene} />
+              { item.annotations.map((ann) => {
+                return (
+                  <AnnotationPoint
+                    key={ann.label}
+                    color={ann.color}
+                    highlightColor={ann.highlightColor}
+                    position={new THREE.Vector3(ann.x, ann.y, ann.z)}
+                    scale={1/item.model.scale} selected={(annotation !== null) && annotation.label === ann.label}
+                    onSelectedChange={() => { setAnnotation(ann); }}
+                  />
+                );
+              })}
+            </group>
           </group>
           <ItemInfoPanel position={itemInfoPosition} rotation={itemInfoRotation} item={item} />
+          <AnnotationPanel position={annotationPosition} rotation={annotationRotation} annotation={annotation}/>
         </Fragment>
       )}
 

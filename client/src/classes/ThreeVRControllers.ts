@@ -112,8 +112,8 @@ class ThreeVRControllers extends EventEmitter {
     this.controllerGrip1 = this.renderer.xr.getControllerGrip( 0 );
     this.controllerGrip1.add( controllerModelFactory.createControllerModel( this.controllerGrip1 ) );
 
-    const controller1RayGeometry = new THREE.CylinderBufferGeometry( 0.0001, 0.003, 1, 3);
-    controller1RayGeometry.translate(-0.01, 0.51, 0.0105);
+    const controller1RayGeometry = new THREE.CylinderBufferGeometry( 0.0001, 0.003, 2, 3);
+    controller1RayGeometry.translate(-0.01, 1.01, 0.0105);
     const controller1RayMaterial = new THREE.MeshBasicMaterial({color: '#0044FF'});
     this.controller1Ray = new THREE.Mesh( controller1RayGeometry, controller1RayMaterial );
     this.controller1Ray.rotateX(Math.PI / 4 - Math.PI);
@@ -125,8 +125,8 @@ class ThreeVRControllers extends EventEmitter {
     this.controllerGrip2 = this.renderer.xr.getControllerGrip( 1 );
     this.controllerGrip2.add( controllerModelFactory.createControllerModel( this.controllerGrip2 ) );
 
-    const controller2RayGeometry = new THREE.CylinderBufferGeometry( 0.001, 0.003, 1, 3);
-    controller2RayGeometry.translate(0.01, 0.51, 0.0105);
+    const controller2RayGeometry = new THREE.CylinderBufferGeometry( 0.001, 0.003, 2, 3);
+    controller2RayGeometry.translate(0.01, 1.01, 0.0105);
     const controller2RayMaterial = new THREE.MeshBasicMaterial({color: '#0044FF'});
     this.controller2Ray = new THREE.Mesh( controller2RayGeometry, controller2RayMaterial );
     this.controller2Ray.rotateX(Math.PI / 4 - Math.PI);

@@ -12,11 +12,13 @@
     "translation": [0,0,0],
     "scale": 1
   },
-  "pointers": [
+  "annotations": [
     {
       "x": 0,
       "y": 0,
       "z": -0.5,
+      "color": "#ffc106",
+      "highlightColor": "#ff6100",
       "label": "Label 1",
       "description": ["This is a paragraph.", "This is another paragraph"]
     },
@@ -24,6 +26,8 @@
       "x": -0.5,
       "y": 0,
       "z": -0.5,
+      "color": "#ffc106",
+      "highlightColor": "#ff6100",
       "label": "Label 2",
       "description": ["This is a paragraph.", "This is another paragraph"]
     }

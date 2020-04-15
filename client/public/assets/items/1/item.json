@@ -7,25 +7,47 @@
   ],
   "model": {
     "type": "gltf",
-    "location": "model/scene.gltf",
-    "rotation": [0,0,0],
-    "translation": [0,-0.75,0],
-    "scale": 0.05
+    "location": "scene.gltf",
+    "rotation": [0, -2, 0.3],
+    "translation": [0,-0.75, 0.25],
+    "scale": 0.013
   },
-  "pointers": [
+  "annotations": [
     {
-      "x": 0,
-      "y": 0,
-      "z": -0.5,
-      "label": "Label 1",
-      "description": ["This is a paragraph.", "This is another paragraph"]
+      "x": 5,
+      "y": 20,
+      "z": -5,
+      "label": "Stem",
+      "description": ["Axis supporting the cap of the mushroom"]
     },
     {
-      "x": -0.5,
-      "y": 0,
-      "z": -0.5,
-      "label": "Label 2",
-      "description": ["This is a paragraph.", "This is another paragraph"]
+      "x": 18,
+      "y": 74,
+      "z": -5,
+      "label": "Ring",
+      "description": ["Membrane located under the cap and circling the stem; remnant of a membrane that covered the gills of the immature mushroom and ruptured as the cap grew."]
+    },
+    {
+      "x": 15,
+      "y": 87,
+      "z": -30,
+      "label": "Gills",
+      "description": ["Fertile spore-producing part of the mushroom, located under the cap."]
+    },
+    {
+      "x": 48,
+      "y": 90,
+      "z": 0,
+      "label": "Scales",
+      "description": ["Rough patches of tissue on the surface of the cap (scales are remnants of the veil)."]
+    },
+    {
+      "x": 35,
+      "y": 95,
+      "z": -35,
+      "label": "Cap",
+      "description": ["Differently shaped and colored upper part of the mushroom that protects the gills; it usually resembles a headdress, hence its name."]
     }
+
   ]
 }

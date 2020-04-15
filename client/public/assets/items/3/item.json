@@ -9,10 +9,10 @@
     "type": "gltf",
     "location": "scene.gltf",
     "rotation": [0, -1.579, 0],
-    "translation": [0, 0.25, 0],
+    "translation": [-0.12, 0.25, 0],
     "scale": 0.25
   },
-  "pointers": [
+  "annotations": [
     {
       "x": 0,
       "y": 0,

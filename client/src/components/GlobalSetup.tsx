@@ -10,7 +10,7 @@ import ControllerRayCaster from './ControllerRayCaster';
 
 
 const ambientLightColor = new THREE.Color('#BBBBBB');
-const directionalLight = new THREE.Color('#999999');
+const directionalLight = new THREE.Color('#222222');
 
 const orbitTarget = new THREE.Vector3(0, 1.6, -1);
 
@@ -41,8 +41,10 @@ const GlobalSetup: React.FC = (props: any) => {
       <LookControls target={orbitTarget}/>
 
       <ControllerRayCaster vrControllers={vrControllers} />
+
       <ambientLight color={ambientLightColor} />
-      <directionalLight position={[-15,10,5]} color={directionalLight} />
+      <directionalLight position={[0, 10, 5]} color={directionalLight} />
+      <pointLight position={[-1.5, 5,-2]} distance={12} color={new THREE.Color('#FFFFFF')}/>
     </Fragment>
   );
 };

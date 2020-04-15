@@ -1,10 +1,12 @@
 
-interface Annotation {
-  x: number;
-  y: number;
-  z: number;
-  label: string;
-  description: string[];
+class Annotation {
+  public color: string = '#CCCCCC';
+  public highlightColor: string = '#007bff';
+  public x: number = 0;
+  public y: number = 0;
+  public z: number = 0;
+  public label: string = '';
+  public description: string[] = [''];
 }
 
 class Model {
@@ -22,3 +24,5 @@ class Item {
 }
 
 export default Item;
+
+export { Model, Annotation };
