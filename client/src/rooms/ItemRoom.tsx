@@ -7,17 +7,23 @@ import ItemInfoPanel from '../components/ItemInfoPanel';
 import AnnotationPanel from '../components/AnnotationPanel';
 import AnnotationPoint from '../components/AnnotationPoint';
 
+import LayerFloor from '../components/LayerFloor';
+
 import Item, { Annotation } from '../classes/Item';
 
 import useGlobal from '../globalState/global';
 
 import fonts from '../fonts/fonts';
 
+const ITEM_FLOOR_POSITION = new THREE.Vector3(0,-1,0);
+
 const itemInfoPosition = new THREE.Vector3(-2.75, 1.6 + 0.05, -2);
 const itemInfoRotation = [0, Math.PI / 3.5, 0];
 
 const annotationPosition = new THREE.Vector3(2.75, 1.6 + 0.05, -2);
 const annotationRotation = [0, -Math.PI / 3.5, 0];
+
+const directionalLight = new THREE.Color('#222222');
 
 const ITEM_LOCATION = `${process.env.PUBLIC_URL}/assets/items`;
 
@@ -61,6 +67,8 @@ const ItemRoom: React.FC<IItemRoomProps> = ({itemId}) => {
 
   useEffect(() => {
 
+    setItemLoading(true);
+
     fetch(`${ITEM_LOCATION}/${itemId}/item.json`).then((resp) => {
       return resp.json();
     }).then((itemJson) => {
@@ -68,7 +76,7 @@ const ItemRoom: React.FC<IItemRoomProps> = ({itemId}) => {
       setItem(itemJson);
       setItemLoading(false);
     });
-  }, []);
+  }, [itemId]);
 
   const [opts, setOpts] = useState({
     font: "Philosopher",
@@ -111,8 +119,12 @@ const ItemRoom: React.FC<IItemRoomProps> = ({itemId}) => {
         <meshPhongMaterial attach="material" color={opts.color} />
       </textMesh>
 
+      <LayerFloor position={ITEM_FLOOR_POSITION} />
+
       { !itemLoading && item !== null && !modelLoading && (
         <Fragment>
+          <pointLight position={[-1.5, 6, -2]} distance={5} color={new THREE.Color('#CCCCCC')} frustumCulled={false} />
+          <directionalLight position={[1, 10, -1]} color={directionalLight} frustumCulled={false} />
           <group position={[0, 1.6, -2.5]} ref={primRef}>
             <group position={item.model.translation} scale={[item.model.scale, item.model.scale, item.model.scale]} rotation={item.model.rotation}>
               <primitive object={modelScene} />

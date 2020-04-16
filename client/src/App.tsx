@@ -15,6 +15,7 @@ import GlobalSetup from './components/GlobalSetup';
 import MenuBar from './components/MenuBar';
 import RoundButton from './components/RoundButton';
 
+import Surroundings from './components/Surroundings';
 import ItemRoom from './rooms/ItemRoom';
 import LibraryRoom from './rooms/LibraryRoom';
 
@@ -30,16 +31,25 @@ const rotateRightButtonPosition = new THREE.Vector3(0.13, 0, 0);
 const sectionLeftButtonPosition = new THREE.Vector3(-0.32, 0, 0);
 const sectionRightButtonPosition = new THREE.Vector3(0.32, 0, 0);
 
-const itemRoomPosition = [0, 8, 0];
+const directionalLight = new THREE.Color('#222222');
+
+const itemRoomPosition = [0, 7, 0];
 
 const App: React.FC = () => {
 
   const [ view, setView ] = useState('library');
 
-  const [ { userData, autoRotateActive, currentView }, globalStateStore ] = useGlobal();
+  const [ {
+    userData,
+    currentItemId,
+    currentSectionIndex,
+    autoRotateActive,
+    currentView,
+    sectionOffset
+  }, globalStateStore ] = useGlobal();
 
   const { pos, ...props } = useSpring({
-    pos: currentView === 'library' ? [0, 0, 0] : [0, -8, 0],
+    pos: currentView === 'library' ? [0, 0, 0] : [0, -7, 0],
     config: { mass: 1, tension: 280, friction: 120, precision: 0.00001 }
   });
 
@@ -72,28 +82,27 @@ const App: React.FC = () => {
 
         <GlobalSetup />
 
-        <mesh
-          position={new THREE.Vector3(0, 0, 0)}
-          rotation={new THREE.Euler(0, 0, 0)}
-          geometry={new THREE.SphereGeometry(0.25, 16, 16)}
-          material={new THREE.MeshPhongMaterial({ color: new THREE.Color('hotpink'), transparent: true })}
-        />
-
         <Suspense fallback={null}>
 
           <BrowserRouter>
 
             <animated.group position={pos}>
               <group position={itemRoomPosition}>
-                <ItemRoom itemId={4} />
+                <ItemRoom itemId={currentItemId} />
               </group>
 
               <LibraryRoom />
             </animated.group>
 
             <group>
+
+              <directionalLight position={[0, 10, 5]} color={directionalLight} frustumCulled={false} />
+              <pointLight position={[-1.5, 5,-2]} distance={12} color={new THREE.Color('#FFFFFF')} />
+
+              <Surroundings />
+
               <mesh>
-                <cylinderBufferGeometry attach="geometry" args={[3, 3, 0.5, 33]}/>
+                <cylinderBufferGeometry attach="geometry" args={[3, 3, 0.3, 33]}/>
                 <meshPhongMaterial attach="material" color={"#AAAAAA"}/>
               </mesh>
               <MenuBar width={1.0}>
@@ -106,31 +115,14 @@ const App: React.FC = () => {
                 </animated.group>
 
                 <animated.group scale={libraryRoomMenu.scale} position={libraryRoomMenu.pos} opacity={libraryRoomMenu.opacity}>
-                  <RoundButton position={sectionLeftButtonPosition} fontPath={fonts.FontAwesome} paddingBottom={0.007} width={0.25} text="&#xf060;" onDownChanged={(newVal) => { if (newVal) { globalStateStore.update({currentView: currentView === 'library' ? 'item' : 'library'}); }}}/>
-                  <RoundButton position={sectionRightButtonPosition} fontPath={fonts.FontAwesome} paddingBottom={0.007} width={0.25} text="&#xf061;" onDownChanged={(newVal) => { globalStateStore.update({rotateLeftActive: newVal}); }} />
+                  {/* if (newVal) { globalStateStore.update({currentView: currentView === 'library' ? 'item' : 'library'}); } */}
+                  <RoundButton position={sectionLeftButtonPosition} fontPath={fonts.FontAwesome} paddingBottom={0.007} width={0.25} text="&#xf060;" onDownChanged={(newVal) => { if (newVal) { globalStateStore.update({sectionOffset: sectionOffset - 1});} }}/>
+                  <RoundButton position={sectionRightButtonPosition} fontPath={fonts.FontAwesome} paddingBottom={0.007} width={0.25} text="&#xf061;" onDownChanged={(newVal) => { if (newVal) { globalStateStore.update({sectionOffset: sectionOffset + 1});} }} />
                 </animated.group>
 
               </MenuBar>
             </group>
 
-
-            {/* <Switch>
-              <Route path="/item/:itemId">
-                <RouteItem />
-              </Route>
-              <Route path="/library">
-                <RouteLibrary />
-              </Route>
-              <Route path="/quiz/course/:courseId">
-                <RouteQuiz />
-              </Route>
-              <Route path="/quiz/course/:courseId/section/:sectionId">
-                <RouteQuiz />
-              </Route>
-              <Route path="/quiz/item/:itemId">
-                <RouteQuiz />
-              </Route>
-            </Switch> */}
           </BrowserRouter>
 
         </Suspense>

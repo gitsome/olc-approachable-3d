@@ -8,6 +8,7 @@ declare module JSX{
       "mesh": any,
       "octahedronGeometry": any,
       "meshBasicMaterial": any,
-      "textMesh": any
+      "textMesh": any,
+      "fog": any
   }
 }

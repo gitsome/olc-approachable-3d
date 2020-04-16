@@ -15,18 +15,11 @@
   "rotateY": true,
   "annotations": [
     {
-      "x": 0,
-      "y": 0,
-      "z": -0.5,
-      "label": "Label 1",
-      "description": ["This is a paragraph.", "This is another paragraph"]
-    },
-    {
-      "x": -0.5,
-      "y": 0,
-      "z": -0.5,
-      "label": "Label 2",
-      "description": ["This is a paragraph.", "This is another paragraph"]
+      "x": 3,
+      "y": 10,
+      "z": 1,
+      "label": "Example Annotation",
+      "description": ["This is just a test for annotations on another model."]
     }
   ]
 }

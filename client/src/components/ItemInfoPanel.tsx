@@ -32,7 +32,7 @@ const ItemInfoPanel: React.FC<IItemInfoPanelProps> = ({
   item
 }) => {
 
-  const frame = useRef(Frame.generateFrame(width, height, 0.1, WHITEBOARD_BORDER_WIDTH));
+  const frame = useRef(Frame.generateFrame(width, height, 0.01, WHITEBOARD_BORDER_WIDTH));
 
   const WHITEBOARD_CONTENT_PADDING = 2 * WHITEBOARD_BORDER_WIDTH;
   const TITLE_START = height / 2 - WHITEBOARD_BORDER_WIDTH - WHITEBOARD_CONTENT_PADDING;
@@ -62,7 +62,7 @@ const ItemInfoPanel: React.FC<IItemInfoPanelProps> = ({
     <group position={position} rotation={rotation}>
 
       <mesh geometry={frame.current}>
-        <meshPhongMaterial attach="material" color={new THREE.Color('#BBBBBB')} />
+        <meshPhongMaterial attach="material" color={new THREE.Color('#BBBBBB')} side={THREE.DoubleSide} />
       </mesh>
 
       <mesh>

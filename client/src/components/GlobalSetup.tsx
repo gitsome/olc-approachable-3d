@@ -8,9 +8,9 @@ import ThreeVRControllers from '../classes/ThreeVRControllers';
 import LookControls from './LookControls';
 import ControllerRayCaster from './ControllerRayCaster';
 
+const CLEAR_COLOR = '#CCCCCC';
 
-const ambientLightColor = new THREE.Color('#BBBBBB');
-const directionalLight = new THREE.Color('#222222');
+const ambientLightColor = new THREE.Color('#999999');
 
 const orbitTarget = new THREE.Vector3(0, 1.6, -1);
 
@@ -22,7 +22,7 @@ const GlobalSetup: React.FC = (props: any) => {
 
   useEffect(() => {
 
-    gl.setClearColor(new THREE.Color('#CCCCCC'));
+    gl.setClearColor(new THREE.Color(CLEAR_COLOR));
 
     camera.position.set(0, 1.6, 0);
 
@@ -37,14 +37,10 @@ const GlobalSetup: React.FC = (props: any) => {
 
   return (
     <Fragment>
-
+      <fog attach="fog" args={[CLEAR_COLOR, 8, 45]} />
       <LookControls target={orbitTarget}/>
-
       <ControllerRayCaster vrControllers={vrControllers} />
-
       <ambientLight color={ambientLightColor} />
-      <directionalLight position={[0, 10, 5]} color={directionalLight} />
-      <pointLight position={[-1.5, 5,-2]} distance={12} color={new THREE.Color('#FFFFFF')}/>
     </Fragment>
   );
 };

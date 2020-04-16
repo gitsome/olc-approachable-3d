@@ -7,18 +7,24 @@ interface IUserData {
 
 export type GlobalState = {
   userData: IUserData | null;
+  currentSectionIndex: number;
+  currentItemId: string | null;
   currentView: string;
   rotateLeftActive: boolean;
   rotateRightActive: boolean;
   autoRotateActive: boolean;
+  sectionOffset: number;
 };
 
 const globalStateStore = new StateStore({
   userData: null,
+  currentSectionIndex: 0,
+  currentItemId: 5,
   currentView: 'library',
   rotateLeftActive: false,
   rotateRightActive: false,
-  autoRotateActive: false
+  autoRotateActive: false,
+  sectionOffset: 0
 });
 
 const useGlobal = () => {
@@ -36,7 +42,6 @@ const useGlobal = () => {
     return () => {
       globalStateStore.off('update', onStateStoreUpdated);
     };
-
   }, []);
 
   return [ globalState, globalStateStore ];
