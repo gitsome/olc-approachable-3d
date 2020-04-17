@@ -1,0 +1,382 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 41434,
+      "max": [
+        1137.594482421875,
+        16946.705078125,
+        476.36651611328125
+      ],
+      "min": [
+        -1096.8587646484375,
+        9306.087890625,
+        -1526.1011962890625
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 497208,
+      "componentType": 5126,
+      "count": 41434,
+      "max": [
+        0.99995386600494385,
+        0.99998682737350464,
+        0.99998360872268677
+      ],
+      "min": [
+        -0.99997353553771973,
+        -0.99997985363006592,
+        -0.9999997615814209
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 41434,
+      "max": [
+        0.99104100465774536,
+        0.99292701482772827
+      ],
+      "min": [
+        0.018336100503802299,
+        0.013336099684238434
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 236520,
+      "max": [
+        41433
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 994416,
+      "componentType": 5126,
+      "count": 12774,
+      "max": [
+        25.574497222900391,
+        14.939212799072266,
+        54.109874725341797
+      ],
+      "min": [
+        -25.574497222900391,
+        -12.13045597076416,
+        -42.4517822265625
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1147704,
+      "componentType": 5126,
+      "count": 12774,
+      "max": [
+        0.99999207258224487,
+        0.99999767541885376,
+        0.99997979402542114
+      ],
+      "min": [
+        -0.99999207258224487,
+        -0.99999892711639404,
+        -0.9999048113822937
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 946080,
+      "componentType": 5125,
+      "count": 74166,
+      "max": [
+        12773
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Genesis1 (https://sketchfab.com/Genesis1)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/digestive-system-2db2c9090e1d4e1891826958398d324f",
+      "title": "Digestive-system"
+    },
+    "generator": "Sketchfab-7.39.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 1242744,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 331472,
+      "byteOffset": 1242744,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1300992,
+      "byteOffset": 1574216,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 2875208,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Digestive_System_baseColor.jpeg"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Digestive_System",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.59999999999999998
+      }
+    },
+    {
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "Material_1",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.56470600000000004,
+          0.28235300000000002,
+          0.17647099999999999,
+          0.26391006097560976
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.88528949813493529
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "DigestiveSystem_Digestive_System_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "skin_Material #1_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 5,
+            "POSITION": 4
+          },
+          "indices": 6,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "Digestive System_v ray.FBX"
+    },
+    {
+      "children": [
+        4,
+        7
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        5
+      ],
+      "matrix": [
+        0.0099999997764825821,
+        0,
+        0,
+        0,
+        0,
+        0.0099999997764825717,
+        4.3711387309712265e-10,
+        0,
+        0,
+        -4.3711387309712265e-10,
+        0.0099999997764825717,
+        0,
+        0.35765886306762695,
+        41.864532470703125,
+        -5.253873348236084,
+        1
+      ],
+      "name": "DigestiveSystem"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        1,
+        0,
+        -0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -20.367856979370117,
+        -13129.5322265625,
+        525.38787841796875,
+        1
+      ],
+      "name": ""
+    },
+    {
+      "mesh": 0,
+      "name": "DigestiveSystem_Digestive_System_0"
+    },
+    {
+      "children": [
+        8
+      ],
+      "matrix": [
+        1.0265207290649414,
+        0,
+        0,
+        0,
+        0,
+        2.4469958636031124e-16,
+        -1.1020289659500122,
+        0,
+        0,
+        1.0214624404907227,
+        2.2681022404452082e-16,
+        0,
+        0,
+        36.426589965820312,
+        -6.9255714416503906,
+        1
+      ],
+      "name": "skin"
+    },
+    {
+      "mesh": 1,
+      "name": "skin_Material #1_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    }
+  ]
+}
+

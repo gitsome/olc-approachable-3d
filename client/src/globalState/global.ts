@@ -1,5 +1,6 @@
 import StateStore from '../classes/StateStore';
 import { useState, useEffect } from 'react';
+import Section from '../classes/Section';
 
 interface IUserData {
   [key: string]: any;
@@ -7,7 +8,7 @@ interface IUserData {
 
 export type GlobalState = {
   userData: IUserData | null;
-  currentSectionIndex: number;
+  currentSection: Section;
   currentItemId: string | null;
   currentView: string;
   rotateLeftActive: boolean;
@@ -18,7 +19,7 @@ export type GlobalState = {
 
 const globalStateStore = new StateStore({
   userData: null,
-  currentSectionIndex: 0,
+  currentSection: null,
   currentItemId: 5,
   currentView: 'library',
   rotateLeftActive: false,

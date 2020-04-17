@@ -12,7 +12,7 @@ const LayerFloor: React.FC<ILayerFloorProps> = ({
   position = new THREE.Vector3(0,0,0)
 }) => {
 
-  const layerGeometry = useRef(CircleFloor.generate(15, 15, 1, 3.6));
+  const layerGeometry = useRef(CircleFloor.generate(7.5, 3.6, 1));
 
   return (
     <mesh

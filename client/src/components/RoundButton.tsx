@@ -3,7 +3,7 @@ import * as THREE from 'three';
 
 import fonts from '../fonts/fonts';
 
-const createBoxWithRoundedEdges = ( width: number, height: number, depth: number, radius0: number, smoothness: number ): THREE.ExtrudeBufferGeometry => {
+const createBoxWithRoundedEdges = ( width: number, height: number, flat: boolean, depth: number, radius0: number, smoothness: number ): THREE.ExtrudeBufferGeometry => {
 
   let eps = 0.00001;
   let radius = radius0 - eps;
@@ -16,7 +16,7 @@ const createBoxWithRoundedEdges = ( width: number, height: number, depth: number
 
   let geometry = new THREE.ExtrudeBufferGeometry( shape, {
     depth: depth - radius0 * 2,
-    bevelEnabled: true,
+    bevelEnabled: !flat,
     bevelSegments: smoothness * 2,
     steps: 1,
     bevelSize: radius,
@@ -31,6 +31,8 @@ const createBoxWithRoundedEdges = ( width: number, height: number, depth: number
 interface IButtonProps {
   children?: React.ReactNode;
   text: string;
+  flat?: boolean;
+  opacity?: number;
   position?: THREE.Vector3;
   rotation?: THREE.Vector3;
   width?: number;
@@ -53,6 +55,8 @@ interface IButtonProps {
 
 const RoundButton: React.FC<IButtonProps> = ({
   text='',
+  flat=false,
+  opacity=1,
   position=new THREE.Vector3(0,0,0),
   rotation=new THREE.Vector3(0,0,0),
   width=0.5,
@@ -80,12 +84,14 @@ const RoundButton: React.FC<IButtonProps> = ({
   const [hovered, setHover] = useState(false);
   const [down, setDown] = useState(false);
 
-  const [ buttonGeometry ] = useState<THREE.ExtrudeBufferGeometry>(createBoxWithRoundedEdges(width, height, depth, radius, smoothness));
+  const [ buttonGeometry ] = useState<THREE.ExtrudeBufferGeometry>(createBoxWithRoundedEdges(width, height, flat, depth, radius, smoothness));
+
+  const fontSize = (height - paddingTop - paddingBottom) * fontScale;
 
   const [opts, setOpts] = useState({
-    fontSize: (height - paddingTop - paddingBottom) * 0.5 * fontScale,
+    fontSize: fontSize,
     color: "white",
-    maxWidth: 10,
+    maxWidth: width,
     letterSpacing: 0,
     textAlign: "justify",
     materialType: "MeshPhongMaterial"
@@ -106,16 +112,16 @@ const RoundButton: React.FC<IButtonProps> = ({
         onPointerDown={(e: any) => { updateDown(true); onSelectChange(!selected); }}
         onPointerUp={(e: any) => { updateDown(false); }}
       >
-        <meshBasicMaterial attach="material" color={selected ? activeColor: (down ? downColor : (hovered ? hoverColor : color))} />
+        <meshBasicMaterial attach="material" color={selected ? activeColor: (down ? downColor : (hovered ? hoverColor : color))} opacity={opacity}/>
       </mesh>
       <textMesh
-          position={[0, paddingBottom, depth / 2 + 0.001]}
+          position={[0, -height/2 + paddingBottom + fontSize / 2, depth / 2 + 0.001]}
           {...opts}
           font={fontPath}
           text={text}
           anchor={[0.5, 0.5]}
       >
-        <meshPhongMaterial attach="material" color={opts.color} />
+        <meshPhongMaterial attach="material" color={opts.color} opacity={opacity} />
       </textMesh>
     </group>
   )

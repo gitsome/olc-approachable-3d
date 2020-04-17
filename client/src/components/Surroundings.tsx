@@ -14,9 +14,7 @@ interface ITree {
 
 const trees: ITree[] = [
   { scale: [1,1,1], pos: new THREE.Vector3(-9, -2, -13), scene: null},
-  { scale: [1,1,1], pos: new THREE.Vector3(12, -2, -25), scene: null},
-  { scale: [1,1,1], pos: new THREE.Vector3(-12, -2, 25), scene: null},
-  { scale: [1,1,1], pos: new THREE.Vector3(30, -2, 20), scene: null}
+  { scale: [1,1,1], pos: new THREE.Vector3(12, -2, -25), scene: null}
 ];
 
 const Surroundings: React.FC = (props: any) => {
@@ -32,8 +30,6 @@ const Surroundings: React.FC = (props: any) => {
       });
       setModelScene(gltf.scene);
       setTreeLoading(false);
-
-      console.log("TREEE:", gltf.scene);
     });
   }, []);
 
@@ -49,14 +45,6 @@ const Surroundings: React.FC = (props: any) => {
           })}
         </Fragment>
       )}
-
-      {/* <mesh
-        position={position}
-        rotation={[-Math.PI /2, 0, 0]}
-        geometry={layerGeometry.current}
-      >
-        <meshPhongMaterial attach="material" color={'#cccccc'} />
-      </mesh> */}
     </Fragment>
 
   )

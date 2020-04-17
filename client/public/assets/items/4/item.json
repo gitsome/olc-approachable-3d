@@ -9,8 +9,8 @@
     "type": "gltf",
     "location": "scene.gltf",
     "rotation": [0, -1.579, 0],
-    "translation": [0.75 , 0.6 , -0.1],
-    "scale": 0.06
+    "translation": [0.4 , 0.5 , -0.1],
+    "scale": 0.04
   },
   "rotateY": 1,
   "annotations": [

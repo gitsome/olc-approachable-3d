@@ -1,0 +1,23 @@
+{
+  "name": "Cell",
+  "description": [
+    "Cell"
+  ],
+  "model": {
+    "type": "gltf",
+    "location": "scene.gltf",
+    "rotation": [0, 0, 0],
+    "translation": [0, -0.95, 0.2],
+    "scale": 0.04
+  },
+  "rotateY": true,
+  "annotations": [
+    {
+      "x": 3,
+      "y": 10,
+      "z": 1,
+      "label": "Example Annotation",
+      "description": ["This is just a test for annotations on another model."]
+    }
+  ]
+}

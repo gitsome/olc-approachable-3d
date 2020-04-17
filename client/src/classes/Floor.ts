@@ -21,7 +21,7 @@ class Floor {
 
     outerShape.holes = [innerShape];
 
-    const extrudeSettings = { depth: depth, bevelEnabled: false, bevelSegments: 1, steps: 2, bevelSize: 0.0010, bevelThickness: 0.001 };
+    const extrudeSettings = { depth: depth, bevelEnabled: false, bevelSegments: 1, steps: 1, bevelSize: 0.0010, bevelThickness: 0.001 };
 
     return new THREE.ExtrudeBufferGeometry( outerShape, extrudeSettings );
   }

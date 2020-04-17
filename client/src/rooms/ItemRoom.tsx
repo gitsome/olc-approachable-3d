@@ -123,7 +123,6 @@ const ItemRoom: React.FC<IItemRoomProps> = ({itemId}) => {
 
       { !itemLoading && item !== null && !modelLoading && (
         <Fragment>
-          <pointLight position={[-1.5, 6, -2]} distance={5} color={new THREE.Color('#CCCCCC')} frustumCulled={false} />
           <directionalLight position={[1, 10, -1]} color={directionalLight} frustumCulled={false} />
           <group position={[0, 1.6, -2.5]} ref={primRef}>
             <group position={item.model.translation} scale={[item.model.scale, item.model.scale, item.model.scale]} rotation={item.model.rotation}>
