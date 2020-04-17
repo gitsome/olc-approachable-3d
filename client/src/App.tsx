@@ -8,6 +8,8 @@ import { TextMesh } from 'troika-3d-text/dist/textmesh-standalone.umd.js';
 
 import { useParams} from "react-router";
 
+import Section from './classes/Section';
+
 import useGlobal from './globalState/global';
 
 import GlobalSetup from './components/GlobalSetup';
@@ -42,10 +44,11 @@ const App: React.FC = () => {
   const [ {
     userData,
     currentItemId,
-    currentSectionIndex,
+    currentSection,
     autoRotateActive,
     currentView,
-    sectionOffset
+    sectionOffset,
+    sections
   }, globalStateStore ] = useGlobal();
 
   const { pos, ...props } = useSpring({
@@ -65,6 +68,18 @@ const App: React.FC = () => {
     opacity: currentView === 'item' ? 0 : 1,
     config: { mass: 1, tension: 280, friction: 120, precision: 0.00001, duration: 400 }
   });
+
+  useEffect(() => {
+    let currentSectionIndex = -1;
+    if (currentSection) {
+      currentSectionIndex = sections.map((sec: Section) => { return sec.id; }).indexOf(currentSection.id);
+      if (sectionOffset !== currentSectionIndex) {
+        globalStateStore.update({
+          currentSection: sections[sectionOffset]
+        });
+      }
+    }
+  }, [currentSection, sectionOffset]);
 
   return (
     <div className="app">
@@ -107,16 +122,72 @@ const App: React.FC = () => {
               <MenuBar width={1.0}>
 
                 <animated.group scale={itemRoomMenu.scale} position={itemRoomMenu.pos} opacity={itemRoomMenu.opacity}>
-                  <RoundButton position={libraryButtonPosition} fontPath={fonts.FontAwesome} paddingBottom={0.03} width={0.15} text="&#xf66f;" onDownChanged={(newVal) => { if (newVal) { globalStateStore.update({currentView: currentView === 'library' ? 'item' : 'library'}); }}}/>
-                  <RoundButton position={rotateLeftButtonPosition} fontPath={fonts.FontAwesome} paddingBottom={0.03} width={0.12} text="&#xf0e2;" fontScale={0.85} onDownChanged={(newVal) => { globalStateStore.update({rotateLeftActive: newVal}); }} />
-                  <RoundButton position={rotateButtonPosition} selected={autoRotateActive} paddingBottom={0.03} onSelectChange={(newVal) => { globalStateStore.update({autoRotateActive: newVal}); }} fontPath={fonts.FontAwesome} width={0.12} text="&#xf021;" />
-                  <RoundButton position={rotateRightButtonPosition} fontPath={fonts.FontAwesome} paddingBottom={0.03} width={0.12} text="&#xf01e;" fontScale={0.85} onDownChanged={(newVal) => { globalStateStore.update({rotateRightActive: newVal}); }} />
+                  <RoundButton
+                    position={libraryButtonPosition}
+                    fontPath={fonts.FontAwesome}
+                    paddingBottom={0.03}
+                    width={0.15}
+                    text="&#xf66f;"
+                    onDownChanged={(newVal) => {
+                      if (newVal) { globalStateStore.update({currentView: currentView === 'library' ? 'item' : 'library'}); }
+                    }}
+                  />
+                  <RoundButton
+                    position={rotateLeftButtonPosition}
+                    fontPath={fonts.FontAwesome}
+                    paddingBottom={0.03}
+                    width={0.12}
+                    text="&#xf0e2;"
+                    fontScale={0.85}
+                    onDownChanged={(newVal) => {
+                      globalStateStore.update({rotateLeftActive: newVal});
+                    }}
+                  />
+                  <RoundButton
+                    position={rotateButtonPosition}
+                    selected={autoRotateActive}
+                    paddingBottom={0.03}
+                    fontPath={fonts.FontAwesome}
+                    width={0.12}
+                    text="&#xf021;"
+                    onSelectChange={(newVal) => {
+                      globalStateStore.update({autoRotateActive: newVal});
+                    }}
+                  />
+                  <RoundButton
+                    position={rotateRightButtonPosition}
+                    fontPath={fonts.FontAwesome}
+                    paddingBottom={0.03}
+                    width={0.12}
+                    text="&#xf01e;"
+                    fontScale={0.85}
+                    onDownChanged={(newVal) => {
+                      globalStateStore.update({rotateRightActive: newVal});
+                    }}
+                  />
                 </animated.group>
 
                 <animated.group scale={libraryRoomMenu.scale} position={libraryRoomMenu.pos} opacity={libraryRoomMenu.opacity}>
-                  {/* if (newVal) { globalStateStore.update({currentView: currentView === 'library' ? 'item' : 'library'}); } */}
-                  <RoundButton position={sectionLeftButtonPosition} fontPath={fonts.FontAwesome} paddingBottom={0.03} width={0.25} text="&#xf060;" onDownChanged={(newVal) => { if (newVal) { globalStateStore.update({sectionOffset: sectionOffset - 1});} }}/>
-                  <RoundButton position={sectionRightButtonPosition} fontPath={fonts.FontAwesome} paddingBottom={0.03} width={0.25} text="&#xf061;" onDownChanged={(newVal) => { if (newVal) { globalStateStore.update({sectionOffset: sectionOffset + 1});} }} />
+                  <RoundButton
+                    position={sectionLeftButtonPosition}
+                    fontPath={fonts.FontAwesome}
+                    paddingBottom={0.03}
+                    width={0.25}
+                    text="&#xf060;"
+                    onDownChanged={(newVal) => {
+                      if (newVal && sectionOffset > 0) { globalStateStore.update({sectionOffset: sectionOffset - 1});}
+                    }}
+                  />
+                  <RoundButton
+                    position={sectionRightButtonPosition}
+                    fontPath={fonts.FontAwesome}
+                    paddingBottom={0.03}
+                    width={0.25}
+                    text="&#xf061;"
+                    onDownChanged={(newVal) => {
+                      if (newVal && sectionOffset < (sections.length - 1)) { globalStateStore.update({sectionOffset: sectionOffset + 1});}
+                    }}
+                  />
                 </animated.group>
 
               </MenuBar>

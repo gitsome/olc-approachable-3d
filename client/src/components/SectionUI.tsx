@@ -6,20 +6,19 @@ import Section from '../classes/Section';
 
 import SectionButton from '../components/SectionButton';
 import SectionItemsWall from '../components/SectionItemsWall';
+import SectionItem from '../components/SectionItem';
 
 import useGlobal from '../globalState/global';
 
 const WALL_PADDING_RADIANS = 0.1;
 const ITEM_RADIANS = Math.PI / 12;
 
-const getPositionForItem = (startingRadians: number, itemIndex: number) => {
-  // const radians = -Math.PI + startingRadians - (WALL_PADDING_RADIANS + itemIndex * ITEM_RADIANS + (itemIndex > 0 ? ((itemIndex - 1) * WALL_PADDING_RADIANS) : 0));
+const getPositionDataForItem = (startingRadians: number, itemIndex: number) => {
   const radians = startingRadians - WALL_PADDING_RADIANS - itemIndex * ITEM_RADIANS - (itemIndex > 0 ? (itemIndex * WALL_PADDING_RADIANS) : 0) - (ITEM_RADIANS / 2) ;
-  return new THREE.Vector3(
-    Math.sin(radians) * 3.4,
-    1,
-    Math.cos(radians) * 3.4
-  );
+  return {
+    radians: radians,
+    pos: new THREE.Vector3(Math.sin(radians) * 3.4, 1.1, Math.cos(radians) * 3.4)
+  };
 };
 
 interface ISectionUIProps {
@@ -44,15 +43,13 @@ const SectionUI: React.FC<ISectionUIProps> = ({
   const [ globalStateValues, globalState ] = useGlobal();
 
   const { wallPos } = useSpring({
-    wallPos: selected ? [0, -0.15, 0] : [0, -1.8,0],
+    wallPos: selected ? [0, 0, 0] : [0, -2,0],
     delay: selected ? 300 : 0,
     config: { mass: 1, tension: 300, friction: 25, clamp: false, precision: 0.00001 }
   });
 
   const wallRadians = 2 * WALL_PADDING_RADIANS + section.items.length * ITEM_RADIANS + (section.items.length - 1) * WALL_PADDING_RADIANS;
   const halfWallRadians = wallRadians / 2;
-
-  console.log("rotation:", rotation, halfWallRadians);
 
   return (
     <Fragment>
@@ -68,13 +65,17 @@ const SectionUI: React.FC<ISectionUIProps> = ({
         <SectionItemsWall position={new THREE.Vector3(0, 0.75, 0)} radians={wallRadians} />
         <animated.group>
           { section.items.map((itemId, index) => {
+
+            const positionData = getPositionDataForItem(-Math.PI + wallRadians, index);
+
             return (
-              <mesh key={itemId} position={getPositionForItem(-Math.PI + wallRadians, index)} onPointerDown={() => {
-                globalState.update({currentView: 'item', currentItemId: itemId});
-              }}>
-                <sphereBufferGeometry attach="geometry" args={[0.1, 5, 5]} />
-                <meshPhongMaterial attach="material" color={'#FF0000'} />
-              </mesh>
+              <group key={itemId} position={positionData.pos} rotation={[0, positionData.radians + Math.PI, 0]}>
+                <SectionItem itemId={itemId} onClick={() => {
+                  if (selected) {
+                    globalState.update({currentView: 'item', currentItemId: itemId});
+                  }
+                }}></SectionItem>
+              </group>
             )
           })}
         </animated.group>

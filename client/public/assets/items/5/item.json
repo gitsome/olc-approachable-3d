@@ -1,25 +1,44 @@
 {
-  "name": "Mushroom Anatomy",
+  "name": "Mushroom Variety",
   "description": [
-    "The mature fruiting body can have various structures. The fruiting body may contain a cap, stalk, ring, volva, and gills.",
-    "The cap normally houses the spore producing surface of the fruiting body.",
-    "Click the annotations to learn more about mushroom anatomy..."
+    "Mushrooms come in all shapes, colors, and sizes.",
+    "This mushroom is species is Marasmius oreades. It is better known as the \"Fairy Ring\" because it is often found in groups that form large rings.",
+    "While this clearly looks like a mushroom, it has some unique properties that set it appart. Click the annotations to learn more."
   ],
   "model": {
     "type": "gltf",
     "location": "model/scene.gltf",
-    "rotation": [0,0,0],
+    "rotation": [0,-4.5,0],
     "translation": [0,-0.75,0],
     "scale": 0.05
   },
   "rotateY": true,
   "annotations": [
     {
-      "x": 3,
+      "x": 0,
+      "y": 28,
+      "z": -8,
+      "label": "Wide Gills",
+      "description": ["Gills can be attached to the stem or free from it. They are seperated with deep channels."]
+    },
+    {
+      "x": -10,
+      "y": 22,
+      "z": 6,
+      "label": "Cap",
+      "description": [
+        "The cap is typically 1 to 5 cm across. It has a bell shape and maintains a slight central bump.",
+        "It can vary from white and brown to reddish tan. The color can change significantly as it dries out."
+      ]
+    },
+    {
+      "x": -3.4,
       "y": 10,
-      "z": 1,
-      "label": "Example Annotation",
-      "description": ["This is just a test for annotations on another model."]
+      "z": -2.5,
+      "label": "Stem",
+      "description": [
+        "The stem tends to be between 2 to 8 cm long and 1.5 to 6 mm thick. It is considered to be dry, tough, and pliant"
+      ]
     }
   ]
 }

@@ -17,8 +17,8 @@ interface ISectionPanelProps {
 const SectionPanel: React.FC<ISectionPanelProps> = ({
   text='',
   position=new THREE.Vector3(0,0,0),
-  width=1.1,
-  height=0.4,
+  width=1.3,
+  height=0.6,
   hide,
   selected,
   onDownChanged= () => {}
@@ -32,7 +32,7 @@ const SectionPanel: React.FC<ISectionPanelProps> = ({
   const [down, setDown] = useState(false);
 
   const [opts, setOpts] = useState({
-    fontSize: 0.08,
+    fontSize: 0.14,
     maxWidth: width * 0.75,
     letterSpacing: 0,
     textAlign: "center",

@@ -15,7 +15,7 @@ const SectionItemsWall: React.FC<ISectionItemsWallProps> = ({
   radians
 }) => {
 
-  const curvedRectGeometry = useRef(CurvedRect.generate(1.75, 3.4, radians, 10, 1));
+  const curvedRectGeometry = useRef(CurvedRect.generate(2, 3.4, radians, 10, 1));
 
   return (
     <mesh

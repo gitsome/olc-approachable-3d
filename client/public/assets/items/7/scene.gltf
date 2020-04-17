@@ -1,0 +1,228 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v0.9.4",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1,
+                5
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "name" : "Light",
+            "rotation" : [
+                0.16907575726509094,
+                0.27217137813568115,
+                0.7558803558349609,
+                0.570947527885437
+            ],
+            "translation" : [
+                4.076245307922363,
+                1.0054539442062378,
+                5.903861999511719
+            ]
+        },
+        {
+            "camera" : 0,
+            "name" : "Camera",
+            "rotation" : [
+                0.483536034822464,
+                0.20870360732078552,
+                0.33687159419059753,
+                0.7804827094078064
+            ],
+            "translation" : [
+                7.358891487121582,
+                -6.925790786743164,
+                4.958309173583984
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "Object_3"
+        },
+        {
+            "children" : [
+                2
+            ],
+            "name" : "Langermannia_gigantea_high.obj.cleaner.materialmerger.gles"
+        },
+        {
+            "children" : [
+                3
+            ],
+            "name" : "RootNode (model correction matrix)",
+            "rotation" : [
+                1,
+                0,
+                0,
+                0
+            ],
+            "translation" : [
+                0,
+                -34.9835090637207,
+                0.6462364196777344
+            ]
+        },
+        {
+            "children" : [
+                4
+            ],
+            "name" : "RootNode (gltf orientation matrix)"
+        }
+    ],
+    "cameras" : [
+        {
+            "name" : "Camera",
+            "perspective" : {
+                "yfov" : 0.39959648408210363,
+                "zfar" : 100,
+                "znear" : 0.10000000149011612
+            },
+            "type" : "perspective"
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Mesh_0.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "source" : 0
+        },
+        {
+            "source" : 1
+        },
+        {
+            "source" : 2
+        }
+    ],
+    "images": [
+        {
+            "uri": "wire_177028149_metallicRoughness.png"
+        },
+        {
+            "uri": "wire_177028149_normal.png"
+        },
+        {
+            "uri": "wire_177028149_baseColor.png"
+        }
+    ],
+    "materials": [
+        {
+            "doubleSided": true,
+            "name": "wire_177028149",
+            "normalTexture": {
+                "index": 1,
+                "scale": 1,
+                "texCoord": 0
+            },
+            "occlusionTexture": {
+                "index": 0,
+                "strength": 1,
+                "texCoord": 0
+            },
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "baseColorTexture": {
+                    "index": 2,
+                    "texCoord": 0
+                },
+                "metallicFactor": 0,
+                "metallicRoughnessTexture": {
+                    "index": 0,
+                    "texCoord": 0
+                },
+                "roughnessFactor": 200
+            }
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 3198,
+            "max" : [
+                52.10498046875,
+                46.887657165527344,
+                58.308807373046875
+            ],
+            "min" : [
+                -53.8118782043457,
+                -82.00723266601562,
+                -57.785335540771484
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 3198,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 3198,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 12000,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 38376,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 38376,
+            "byteOffset" : 38376
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 25584,
+            "byteOffset" : 76752
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 24000,
+            "byteOffset" : 102336
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 126336,
+            "uri" : "scene.bin"
+        }
+    ]
+}

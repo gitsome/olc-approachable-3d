@@ -15,6 +15,7 @@ export type GlobalState = {
   rotateRightActive: boolean;
   autoRotateActive: boolean;
   sectionOffset: number;
+  sections: Section[];
 };
 
 const globalStateStore = new StateStore({
@@ -25,7 +26,24 @@ const globalStateStore = new StateStore({
   rotateLeftActive: false,
   rotateRightActive: false,
   autoRotateActive: false,
-  sectionOffset: 0
+  sectionOffset: 0,
+  sections: [
+    {
+      id: '1.1.1',
+      name: 'Fungi',
+      items: ['1', '5', '7']
+    },
+    {
+      id: '4.1.5',
+      name: 'Molecules',
+      items: ['2']
+    },
+    {
+      id: '3.1.5',
+      name: 'Head Anatomy',
+      items: ['3']
+    }
+  ]
 });
 
 const useGlobal = () => {

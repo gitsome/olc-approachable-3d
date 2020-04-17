@@ -1,6 +1,5 @@
 import React, { Suspense, Fragment, useState, useEffect, useRef, useMemo } from 'react';
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useThree, useLoader, useFrame } from 'react-three-fiber';
 
 import ItemInfoPanel from '../components/ItemInfoPanel';
@@ -14,6 +13,7 @@ import Item, { Annotation } from '../classes/Item';
 import useGlobal from '../globalState/global';
 
 import fonts from '../fonts/fonts';
+import ModelLoaderService from '../services/ModelLoaderService';
 
 const ITEM_FLOOR_POSITION = new THREE.Vector3(0,-1,0);
 
@@ -69,10 +69,11 @@ const ItemRoom: React.FC<IItemRoomProps> = ({itemId}) => {
 
     setItemLoading(true);
 
+    setAnnotation(null);
+
     fetch(`${ITEM_LOCATION}/${itemId}/item.json`).then((resp) => {
       return resp.json();
     }).then((itemJson) => {
-      console.log("itemJson:", itemJson);
       setItem(itemJson);
       setItemLoading(false);
     });
@@ -92,10 +93,8 @@ const ItemRoom: React.FC<IItemRoomProps> = ({itemId}) => {
   useEffect(() => {
     if (item) {
 
-      var loader = new GLTFLoader();
-
-      loader.load(`${process.env.PUBLIC_URL}/assets/items/${itemId}/${item.model.location}`, (gltf) => {
-        setModelScene(gltf.scene);
+      ModelLoaderService.getModelScene(`${process.env.PUBLIC_URL}/assets/items/${itemId}/${item.model.location}`).then((modelScene) => {
+        setModelScene(modelScene);
         setModelLoading(false);
       });
     }

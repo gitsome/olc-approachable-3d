@@ -1,0 +1,28 @@
+{
+    "name": "Mushroom Reproduction",
+    "description": [
+      "The fruiting body of mushrooms vary greatly. In many cases the spores are emitted from the gills under a cap and are carried by the wind.",
+      "The Puffball Mushroom takes a very different approach to spreading spores. Click the annotation to learn more."
+    ],
+    "model": {
+      "type": "gltf",
+      "location": "scene.gltf",
+      "rotation": [1.579, -3.14, 1.185],
+      "translation": [0.2, 0, 0],
+      "scale": 0.013
+    },
+    "rotateY": 1,
+    "annotations": [
+      {
+        "x": 20,
+        "y": 30,
+        "z": 35,
+        "label": "Puffball Fruitbody",
+        "description": [
+          "The distinguishing feature of all puffballs is that they do not have an open cap with spore-bearing gills. Instead, spores are produced internally, in a spheroidal fruitbody.",
+          "The fruitbody remains closed until after the spores have been released from the basidia.",
+          "Eventually, it develops an aperture, or dries, becomes brittle, and splits, and the spores escape are fungi, so named because clouds of brown dust-like spores are emitted when the mature fruitbody bursts or is impacted."
+        ]
+      }
+    ]
+  }
