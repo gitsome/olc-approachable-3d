@@ -50,7 +50,7 @@ const App: React.FC = () => {
 
   const { pos, ...props } = useSpring({
     pos: currentView === 'library' ? [0, 0, 0] : [0, -7, 0],
-    config: { mass: 1, tension: 25, friction: 8, precision: 0.00001 }
+    config: { mass: 1, tension: 5, clamp: true, friction: 4, precision: 0.00001 }
   });
 
   const itemRoomMenu = useSpring({

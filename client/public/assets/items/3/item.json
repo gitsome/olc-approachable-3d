@@ -9,11 +9,10 @@
     "type": "gltf",
     "location": "scene.gltf",
     "rotation": [0, -0.3 ,0],
-    "translation": [0.1, -0.5, 0],
+    "translation": [0.1, -0.2, 0],
     "scale": 0.25
   },
-  "rotateZ": 1,
-  "rotateY": 0.75,
+  "rotateY": 1,
   "annotations": [
     {
       "x": 0.5,
