@@ -28,10 +28,7 @@ if (isDev) {
     console.log(JSON.stringify(ltiData, null, 2));
 
     return done(null, {
-      user_id: ltiData.user_id,
-      sectionId: ltiData.sectionId,
-      sectionName: ltiData.sectionName,
-      itemId: ltiData.itemId
+      user_id: ltiData.user_id
     });
   });
 }
@@ -91,7 +88,7 @@ class AppServer {
     if (isDev) {
       app.get('/launch/:sectionId/:sectionName/:itemId', passport.authenticate('lti'), (req, res) => { return devLaunchHandler(req, res, this.db); });
     } else {
-      app.post('/launch', passport.authenticate('lti'), (req, res) => { return ltiLaunchHandler(req, res, this.db); });
+      app.post('/launch/:sectionId/:sectionName/:itemId', passport.authenticate('lti'), (req, res) => { return ltiLaunchHandler(req, res, this.db); });
     }
 
 
@@ -162,8 +159,8 @@ class AppServer {
       // local dev requires https, you will need to create a local server.key and server.cert file and place it in the server/build directory
       // https://timonweb.com/posts/running-expressjs-server-over-https/
       https.createServer({
-        key: fs.readFileSync('server.key'),
-        cert: fs.readFileSync('server.cert')
+        key: fs.readFileSync(path.join(__dirname, 'server.key')),
+        cert: fs.readFileSync(path.join(__dirname, 'server.cert'))
       }, app)
       .listen(this.port, () => { console.log(`Example app listening on port ${this.port}`)});
 

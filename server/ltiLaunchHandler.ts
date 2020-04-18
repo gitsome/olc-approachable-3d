@@ -3,12 +3,14 @@ export default (req: any, res: any, db: Loki) => {
   const user = req.user as any;
   console.log("launch user =============>", user);
 
+  const { sectionId, sectionName, itemId } = req.params;
+
   // then determine where the user should go
-  if (user.itemId) {
+  if (itemId) {
 
-    if (user.sectionId) {
+    if (sectionId) {
 
-      const itemViewRecord = {user_id: user.user_id, sectionName: user.sectionName, sectionId: user.sectionId, itemId: user.itemId};
+      const itemViewRecord = {user_id: user.user_id, sectionName: sectionName, sectionId: sectionId, itemId: itemId};
 
       const itemViews = db.getCollection("ITEM_VIEWS");
       const existingItemView = itemViews.findOne(itemViewRecord);
@@ -18,7 +20,7 @@ export default (req: any, res: any, db: Loki) => {
       }
     }
 
-    res.redirect(`/section/${user.sectionId ? user.sectionId : null}/item/${user.itemId}`);
+    res.redirect(`/section/${sectionId ? sectionId : null}/item/${itemId}`);
   } else {
     res.redirect('/');
   }
