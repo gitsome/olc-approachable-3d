@@ -71,6 +71,10 @@ class AppServer {
       secret: 'demo',
       resave: false,
       saveUninitialized: true,
+      cookie: {
+        sameSite: 'none',
+        secure: true
+      }
     }));
 
     // body parsing
