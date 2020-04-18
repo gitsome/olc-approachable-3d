@@ -27,7 +27,7 @@ if (isDev) {
     console.log('ltiData ===========================================>');
     console.log(JSON.stringify(ltiData, null, 2));
 
-    return done(null, {
+    return done({
       user_id: ltiData.user_id,
       sectionId: ltiData.sectionId,
       sectionName: ltiData.sectionName,
