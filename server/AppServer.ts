@@ -30,6 +30,7 @@ if (isDev) {
     return done(null, {
       user_id: ltiData.user_id,
       sectionId: ltiData.sectionId,
+      sectionName: ltiData.sectionName,
       itemId: ltiData.itemId
     });
   });
@@ -93,6 +94,8 @@ class AppServer {
 
     app.get('/api/user', (req, res) => {
 
+      console.log(req.session, req.session ? req.session.passport : null);
+
       if (req.session === undefined || req.session.passport === undefined) {
         throw new Error('invalid_user_session');
       }
@@ -149,7 +152,8 @@ class AppServer {
 
     if (isDev) {
 
-      // local dev requires https, you will need to create a local server.key and server.cert file and place it in the build directory
+      // local dev requires https, you will need to create a local server.key and server.cert file and place it in the server/build directory
+      // https://timonweb.com/posts/running-expressjs-server-over-https/
       https.createServer({
         key: fs.readFileSync('server.key'),
         cert: fs.readFileSync('server.cert')
