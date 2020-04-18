@@ -79,6 +79,7 @@ class AppServer {
 
     // allow passport to be used ( must be used after other middleware ) https://stackoverflow.com/questions/16781294/passport-js-passport-initialize-middleware-not-in-use
     app.use(passport.initialize());
+    app.use(passport.session());
 
 
     /* ============ AUTHENTICATION (LTI) ============ */
