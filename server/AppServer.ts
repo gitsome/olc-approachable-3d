@@ -88,7 +88,7 @@ class AppServer {
     if (isDev) {
       app.get('/launch/:sectionId/:sectionName/:itemId', passport.authenticate('lti'), (req, res) => { return devLaunchHandler(req, res, this.db); });
     } else {
-      app.post('/launch/:sectionId/:sectionName/:itemId', passport.authenticate('lti'), (req, res) => { return ltiLaunchHandler(req, res, this.db); });
+      app.post('/launch', passport.authenticate('lti'), (req, res) => { return ltiLaunchHandler(req, res, this.db); });
     }
 
 
