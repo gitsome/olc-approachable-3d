@@ -35,7 +35,7 @@ const SectionButton: React.FC<ISectionButtonProps> = ({
 
   const { scale, animPosition } = useSpring({
     scale: hasLoaded ? [1, 1, 1] : [0, 0, 0],
-    animPosition: hide ? [position.x * 2, position.y, position.z * 2] : [position.x, position.y, position.z],
+    animPosition: hide ? [position.x * 2, position.y + 0.5, position.z * 2] : [position.x, position.y, position.z],
     config: { mass: 1, tension: 280, friction: 120, precision: 0.00001, duration: 300 }
   });
 
@@ -47,7 +47,7 @@ const SectionButton: React.FC<ISectionButtonProps> = ({
 
   return (
     <animated.group scale={scale} position={animPosition} rotation={[0, rotation, 0]}>
-      <SectionPanel hide={hide} selected={selected} text={section.name} onDownChanged={(newVal: any) => { if (newVal) { onClick() }}}/>
+      <SectionPanel hide={hide} selected={selected} text={section.name} onSelected={() => { onClick() }}/>
     </animated.group>
   )
 };

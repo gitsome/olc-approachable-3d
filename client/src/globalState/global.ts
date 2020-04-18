@@ -7,6 +7,7 @@ interface IUserData {
 }
 
 export type GlobalState = {
+  isStateLoaded: boolean;
   userData: IUserData | null;
   currentSection: Section;
   currentItemId: string | null;
@@ -16,9 +17,12 @@ export type GlobalState = {
   autoRotateActive: boolean;
   sectionOffset: number;
   sections: Section[];
+  requestRecenter: boolean;
+  isVR: boolean;
 };
 
 const globalStateStore = new StateStore({
+  isStateLoaded: false,
   userData: null,
   currentSection: null,
   currentItemId: 5,
@@ -27,23 +31,9 @@ const globalStateStore = new StateStore({
   rotateRightActive: false,
   autoRotateActive: false,
   sectionOffset: 0,
-  sections: [
-    {
-      id: '1.1.1',
-      name: 'Fungi',
-      items: ['1', '5', '7']
-    },
-    {
-      id: '4.1.5',
-      name: 'Molecules',
-      items: ['2']
-    },
-    {
-      id: '3.1.5',
-      name: 'Head Anatomy',
-      items: ['3']
-    }
-  ]
+  requestRecenter: false,
+  isVR: false,
+  sections: []
 });
 
 const useGlobal = () => {

@@ -47,11 +47,11 @@ const SectionItem: React.FC<ISectionItemProps> = ({
       <mesh
         onPointerOver={(e: any) => { setHover(true); }}
         onPointerOut={(e: any) => { setHover(false); }}
-        onPointerDown={() => { onClick() }}
+        onPointerUp={() => { onClick() }}
         position={[0, 0, 0.2]}
       >
         <planeBufferGeometry attach="geometry" args={[1, 0.9, 1]} />
-        <meshPhongMaterial attach="material" color={hovered ? '#DDDDDD' : '#FFFFFF'} side={THREE.FrontSide} />
+        <meshPhongMaterial attach="material" color={hovered ? '#DDDDDD' : '#FFFFFF'} side={THREE.FrontSide} emissive={new THREE.Color('#333333')} shininess={10}/>
       </mesh>
       <mesh position={[0, 0.15, 0.21]}>
         <planeBufferGeometry attach="geometry" args={[0.4, 0.4, 1]} />

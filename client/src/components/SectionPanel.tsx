@@ -11,7 +11,7 @@ interface ISectionPanelProps {
   position?: THREE.Vector3;
   width?: number;
   height?: number;
-  onDownChanged?: (isDown: boolean) => void;
+  onSelected?: () => void;
 }
 
 const SectionPanel: React.FC<ISectionPanelProps> = ({
@@ -21,7 +21,7 @@ const SectionPanel: React.FC<ISectionPanelProps> = ({
   height=0.6,
   hide,
   selected,
-  onDownChanged= () => {}
+  onSelected = () => {}
 }) => {
 
   // This reference will give us direct access to the mesh
@@ -45,7 +45,6 @@ const SectionPanel: React.FC<ISectionPanelProps> = ({
   });
 
   const updateDown = (newDownValue: boolean) => {
-    onDownChanged(newDownValue);
     setDown(newDownValue);
   };
 
@@ -56,7 +55,7 @@ const SectionPanel: React.FC<ISectionPanelProps> = ({
         onPointerOver={(e: any) => { setHover(true); }}
         onPointerOut={(e: any) => { setHover(false); updateDown(false); }}
         onPointerDown={(e: any) => { updateDown(true); }}
-        onPointerUp={(e: any) => { updateDown(false); }}
+        onPointerUp={(e: any) => { updateDown(false); onSelected(); }}
       >
         <planeGeometry attach="geometry" args={[width, height, 1]} />
         <animated.meshPhongMaterial attach="material" color={down ? '#DDDDDD' : (hovered ? '#DDDDDD' : '#FFFFFF')} opacity={opacity} transparent={true}/>

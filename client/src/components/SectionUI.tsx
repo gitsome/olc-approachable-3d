@@ -63,7 +63,7 @@ const SectionUI: React.FC<ISectionUIProps> = ({
       />
       <animated.group position={wallPos} rotation={[0, rotation - halfWallRadians, 0]}>
         <SectionItemsWall position={new THREE.Vector3(0, 0.75, 0)} radians={wallRadians} />
-        <animated.group>
+        <group>
           { section.items.map((itemId, index) => {
 
             const positionData = getPositionDataForItem(-Math.PI + wallRadians, index);
@@ -71,14 +71,14 @@ const SectionUI: React.FC<ISectionUIProps> = ({
             return (
               <group key={itemId} position={positionData.pos} rotation={[0, positionData.radians + Math.PI, 0]}>
                 <SectionItem itemId={itemId} onClick={() => {
-                  if (selected) {
+                  if (selected === true) {
                     globalState.update({currentView: 'item', currentItemId: itemId});
                   }
                 }}></SectionItem>
               </group>
             )
           })}
-        </animated.group>
+        </group>
       </animated.group>
     </Fragment>
   )

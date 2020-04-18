@@ -27,6 +27,8 @@ const directionalLight = new THREE.Color('#222222');
 
 const ITEM_LOCATION = `${process.env.PUBLIC_URL}/assets/items`;
 
+const ROTATE_SCALAR = 0.013;
+
 interface IItemRoomProps {
   children?: React.ReactNode;
   itemId: number;
@@ -53,7 +55,7 @@ const ItemRoom: React.FC<IItemRoomProps> = ({itemId}) => {
     setDebugText(``);
     if (primRef && primRef.current) {
 
-      const rotateValue = (rotateRightActive || autoRotateActive) ? - 0.01 : 0.01;
+      const rotateValue = (rotateRightActive || autoRotateActive) ? - ROTATE_SCALAR : ROTATE_SCALAR;
 
       if (rotateLeftActive || rotateRightActive || autoRotateActive) {
 

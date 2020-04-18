@@ -49,6 +49,7 @@ interface IButtonProps {
   downColor?: string;
   fontPath?: string;
   selected?: boolean;
+  onClick?: () => void;
   onSelectChange?: (selected: boolean) => void;
   onDownChanged?: (isDown: boolean) => void;
 }
@@ -73,6 +74,7 @@ const RoundButton: React.FC<IButtonProps> = ({
   downColor='#000000',
   fontPath=fonts.Roboto,
   selected=false,
+  onClick=() => {},
   onSelectChange= () => {},
   onDownChanged= () => {}
 }) => {
@@ -109,8 +111,8 @@ const RoundButton: React.FC<IButtonProps> = ({
         ref={mesh}
         onPointerOver={(e: any) => { setHover(true); }}
         onPointerOut={(e: any) => { setHover(false); updateDown(false); }}
-        onPointerDown={(e: any) => { updateDown(true); onSelectChange(!selected); }}
-        onPointerUp={(e: any) => { updateDown(false); }}
+        onPointerDown={(e: any) => { updateDown(true); }}
+        onPointerUp={(e: any) => { updateDown(false); onSelectChange(!selected); onClick(); }}
       >
         <meshBasicMaterial attach="material" color={selected ? activeColor: (down ? downColor : (hovered ? hoverColor : color))} opacity={opacity}/>
       </mesh>

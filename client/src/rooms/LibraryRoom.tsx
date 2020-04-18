@@ -66,7 +66,7 @@ const LibraryRoom: React.FC = () => {
               rotation={positionData.rotation}
               position={positionData.pos}
               onClick={ () => {
-                if (currentSection && currentSection.id === section.id) {
+                if (isSelectionSelected) {
                   globalState.update({currentSection: null});
                 } else {
                   globalState.update({currentSection: section, sectionOffset: index});

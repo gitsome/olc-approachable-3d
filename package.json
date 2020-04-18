@@ -1,8 +1,9 @@
 {
   "name": "olc-approachable-3d",
+  "homepage": "https://johndavidmartin.com/sites/3d-learning-content",
   "version": "1.0.0",
   "description": "This repository hosts code used to demonstrate one way to deliver cross-platform, lms integrated, 3D content that is simple to author and simple to deliver.",
-  "main": "server/build/server.js",
+  "main": "server/build/serverInit.js",
   "repository": "https://github.com/gitsome/olc-approachable-3d.git",
   "author": "John David Martin <jmartin@unicon.net>",
   "license": "MIT",
@@ -21,6 +22,9 @@
   },
   "dependencies": {
     "@types/express-session": "^1.17.0",
+    "@types/lodash.groupby": "^4.6.6",
+    "@types/lokijs": "^1.5.3",
+    "@types/passport-strategy": "^0.2.35",
     "aws-sdk": "^2.596.0",
     "body-parser": "^1.19.0",
     "chalk": "^3.0.0",
@@ -28,15 +32,18 @@
     "dotenv-expand": "^5.1.0",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.0",
     "ims-lti": "^3.0.2",
+    "lodash.groupby": "^4.6.0",
     "lokijs": "^1.5.8",
     "node-path-locker": "^1.0.3",
     "passport": "^0.4.1",
-    "passport-lti": "^0.0.7"
+    "passport-lti": "^0.0.7",
+    "passport-strategy": "^1.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.2",
+    "@types/fs-extra": "^8.1.0",
     "@types/node": "12.12.3",
     "@types/passport": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^2.3.1",
