@@ -94,13 +94,19 @@ class AppServer {
 
     app.get('/api/user', (req, res) => {
 
-      console.log(req.session, req.session ? req.session.passport : null);
+      console.log(req.user, req.session, req.session ? req.session.passport : null);
 
       if (req.session === undefined || req.session.passport === undefined) {
         throw new Error('invalid_user_session');
       }
 
-      const user = req.session.passport.user as any;
+      let user;
+      if (isDev) {
+        user = req.session.passport.user as any;
+      } else {
+        user = req.user as any;
+      }
+
 
       const itemViewsCollection = this.db.getCollection("ITEM_VIEWS");
       const itemViews = itemViewsCollection.find({user_id: user.user_id});
