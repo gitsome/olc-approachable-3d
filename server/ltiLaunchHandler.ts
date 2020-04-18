@@ -1,7 +1,7 @@
 export default (req: any, res: any, db: Loki) => {
 
   const user = req.user as any;
-  console.log("launch user =============>", user);
+  console.log("LTI LAUNCH =============>", user);
 
   const { sectionId, sectionName, itemId } = req.params;
 
