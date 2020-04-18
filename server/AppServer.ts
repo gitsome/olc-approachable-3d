@@ -95,6 +95,9 @@ class AppServer {
 
     app.get('/api/user', (req, res) => {
 
+      console.log('user:', req.user);
+      console.log('session:', req.session);
+      console.log('passport:', req.session ? req.session.passport : 'nope');
       console.log(req);
 
       if (req.session === undefined || req.session.passport === undefined) {

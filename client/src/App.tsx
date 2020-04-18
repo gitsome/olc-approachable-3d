@@ -22,7 +22,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     // load state from server
-    fetch(`/api/user`).then((resp) => {
+    fetch(`/api/user`, {credentials: "same-origin"}).then((resp) => {
       return resp.json();
     }).then((userData) => {
       console.log("userData:", userData);
