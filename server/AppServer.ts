@@ -94,7 +94,7 @@ class AppServer {
 
     app.get('/api/user', (req, res) => {
 
-      console.log(req.user, req.session, req.session ? req.session.passport : null);
+      console.log(req);
 
       if (req.session === undefined || req.session.passport === undefined) {
         throw new Error('invalid_user_session');
