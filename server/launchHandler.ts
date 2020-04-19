@@ -2,9 +2,11 @@ export default (req: any, res: any, db: Loki) => {
 
   const user = req.user as any;
 
-  const { sectionId, sectionName, itemId } = req.query;
+  const { sectionId, sectionName, itemId, clear } = req.query;
 
-  console.log('el launch o:', sectionId, sectionName, itemId);
+  if (clear === 'true') {
+    return res.redirect('/api/clear');
+  }
 
   if (itemId) {
 
@@ -20,7 +22,7 @@ export default (req: any, res: any, db: Loki) => {
       }
     }
 
-    res.redirect(`/section/${sectionId ? sectionId : null}/item/${itemId}`);
+    return res.redirect(`/section/${sectionId ? sectionId : null}/item/${itemId}`);
 
   } else if (sectionId && sectionName) {
 
@@ -33,12 +35,11 @@ export default (req: any, res: any, db: Loki) => {
       itemViews.insert(itemViewRecord);
     }
 
-    res.redirect(`/section/${sectionId}`);
+    return res.redirect(`/section/${sectionId}`);
 
-  } else {
-
-    console.log('going to root');
-
-    res.redirect('/');
   }
+
+  console.log('going to root');
+
+  res.redirect('/');
 };
