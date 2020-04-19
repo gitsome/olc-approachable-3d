@@ -1,11 +1,9 @@
 export default (req: any, res: any, db: Loki) => {
 
   const user = req.user as any;
-  console.log("LTI LAUNCH =============>", req.url, req);
+  console.log("LTI LAUNCH =============>", req.originalUrl, req);
 
-  const itemId = 1;
-  const sectionId = 1;
-  const sectionName = 'Fungi';
+  const { itemId, sectionId, sectionName } = req.query;
 
 
   // then determine where the user should go
