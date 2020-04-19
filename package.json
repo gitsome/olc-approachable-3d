@@ -1,6 +1,5 @@
 {
   "name": "olc-approachable-3d",
-  "homepage": "https://johndavidmartin.com/sites/3d-learning-content",
   "version": "1.0.0",
   "description": "This repository hosts code used to demonstrate one way to deliver cross-platform, lms integrated, 3D content that is simple to author and simple to deliver.",
   "main": "server/build/serverInit.js",

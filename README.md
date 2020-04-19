@@ -45,6 +45,10 @@ You will need to install `Node.js` in order to run the scripts that setup the en
 
 [Install Yarn](https://yarnpkg.com/lang/en/docs/install)
 
+### Run the App Locally
+
+You can run the server locally which will also serve up the UI.
+
 ### Install Heroku
 
 To run this demo you will need to install Heroku and create an account.

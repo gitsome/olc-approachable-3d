@@ -95,7 +95,7 @@ class AppServer {
     /* ============ AUTHENTICATION (LTI) ============ */
 
     if (isDev) {
-      app.get('/launch/:sectionId/:sectionName/:itemId', passport.authenticate('lti-dev'), (req, res) => { return launchHandler(req, res, this.db); });
+      app.get('/launch', passport.authenticate('lti'), (req, res) => { return launchHandler(req, res, this.db); });
     } else {
       app.post('/launch', passport.authenticate('lti'), (req, res) => { return launchHandler(req, res, this.db); });
     }
@@ -104,10 +104,6 @@ class AppServer {
     /* ============ API REQUEST HANDLERS ============ */
 
     app.get('/api/user', (req, res) => {
-
-      console.log('user:', req.user);
-      console.log('session:', req.session);
-      console.log('passport:', req.session ? req.session.passport : 'nope');
 
       if (req.session === undefined || req.session.passport === undefined) {
         throw new Error('invalid_user_session');
@@ -127,7 +123,7 @@ class AppServer {
         return {
           id: sectionId,
           name: name,
-          items: itemsBySection[sectionId].map((itemView) => { return itemView.itemId; })
+          items: itemsBySection[sectionId].map((itemView) => { return itemView.itemId; }).filter((itemId) => itemId !== null)
         };
       });
 
