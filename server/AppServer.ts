@@ -7,6 +7,7 @@ import session from 'express-session';
 import https from 'https';
 import fs from 'fs-extra';
 import groupBy from 'lodash.groupby';
+import featurePolicy from 'feature-policy';
 
 import ltiLaunchHandler from './ltiLaunchHandler';
 import devLaunchHandler from './devLaunchHandler';
@@ -81,6 +82,15 @@ class AppServer {
     // allow passport to be used ( must be used after other middleware ) https://stackoverflow.com/questions/16781294/passport-js-passport-initialize-middleware-not-in-use
     app.use(passport.initialize());
     app.use(passport.session());
+
+    app.use(featurePolicy({
+      features: {
+        vr: ["'*'"],
+        xr: ["'*'"],
+        fullscreen: ["'*'"],
+        vibrate: ["'*'"]
+      }
+    }));
 
 
     /* ============ AUTHENTICATION (LTI) ============ */
