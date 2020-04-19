@@ -8,6 +8,7 @@ import { TextMesh } from 'troika-3d-text/dist/textmesh-standalone.umd.js';
 import useGlobal from './globalState/global';
 
 import RouteLibrary from './routes/RouteLibrary';
+import RouteSection from './routes/RouteSection';
 import RouteItem from './routes/RouteItem';
 
 import CanvasRoot from './components/CanvasRoot';
@@ -44,8 +45,11 @@ const App: React.FC = () => {
 
           <BrowserRouter>
             <Switch>
-              <Route path="/section/:sectionId/item/:itemId">
+              <Route exact path="/section/:sectionId/item/:itemId">
                 <RouteItem />
+              </Route>
+              <Route exact path="/section/:sectionId">
+                <RouteSection />
               </Route>
               <Route component={RouteLibrary} />
             </Switch>

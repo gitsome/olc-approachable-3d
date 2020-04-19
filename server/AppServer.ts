@@ -9,8 +9,7 @@ import fs from 'fs-extra';
 import groupBy from 'lodash.groupby';
 import featurePolicy from 'feature-policy';
 
-import ltiLaunchHandler from './ltiLaunchHandler';
-import devLaunchHandler from './devLaunchHandler';
+import launchHandler from './launchHandler';
 import DevStrategy from './DevStrategy';
 
 const isDev = process.env.dev && process.env.dev === 'true';
@@ -96,9 +95,9 @@ class AppServer {
     /* ============ AUTHENTICATION (LTI) ============ */
 
     if (isDev) {
-      app.get('/launch/:sectionId/:sectionName/:itemId', passport.authenticate('lti'), (req, res) => { return devLaunchHandler(req, res, this.db); });
+      app.get('/launch/:sectionId/:sectionName/:itemId', passport.authenticate('lti-dev'), (req, res) => { return launchHandler(req, res, this.db); });
     } else {
-      app.post('/launch', passport.authenticate('lti'), (req, res) => { return ltiLaunchHandler(req, res, this.db); });
+      app.post('/launch', passport.authenticate('lti'), (req, res) => { return launchHandler(req, res, this.db); });
     }
 
 

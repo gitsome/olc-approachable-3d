@@ -5,8 +5,6 @@ export default (req: any, res: any, db: Loki) => {
 
   const { itemId, sectionId, sectionName } = req.query;
 
-
-  // then determine where the user should go
   if (itemId) {
 
     if (sectionId) {
@@ -22,6 +20,11 @@ export default (req: any, res: any, db: Loki) => {
     }
 
     res.redirect(`/section/${sectionId ? sectionId : null}/item/${itemId}`);
+
+  } else if (sectionId) {
+
+    res.redirect(`/section/${sectionId}`);
+
   } else {
     res.redirect('/');
   }
