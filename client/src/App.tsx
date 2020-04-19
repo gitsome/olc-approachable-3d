@@ -22,13 +22,15 @@ const App: React.FC = () => {
   }, globalStateStore ] = useGlobal();
 
   useEffect(() => {
+
     // load state from server
-    fetch(`/api/user`, {credentials: "same-origin"}).then((resp) => {
+    fetch(`/api/user`, { credentials: "same-origin" }).then((resp) => {
       return resp.json();
     }).then((userData) => {
-      console.log("userData:", userData);
+      // console.log("userData:", userData);
       globalStateStore.update({sections: userData.sections, isStateLoaded: true});
     });
+
   }, []);
 
   return (

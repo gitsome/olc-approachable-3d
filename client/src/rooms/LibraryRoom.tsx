@@ -24,10 +24,10 @@ const LibraryRoom: React.FC = () => {
     font: "Philosopher",
     fontSize: 0.7,
     color: "gray",
-    maxWidth: 10,
+    maxWidth: 5,
     lineHeight: 1,
     letterSpacing: 0,
-    textAlign: "justify",
+    textAlign: "center",
     materialType: "MeshPhongMaterial"
   });
 
@@ -75,6 +75,22 @@ const LibraryRoom: React.FC = () => {
             />
           )
         })}
+
+        { sections.length === 0 && (
+          <group>
+            <group position={[0, 1.6, -6]}>
+              <textMesh
+                {...opts}
+                color={'#333333'}
+                font={fonts.Roboto}
+                text={'You have not viewed any items yet'}
+                anchor={[0.5, 0.5]}
+                frustumCulled={false}
+              ></textMesh>
+            </group>
+          </group>
+          )}
+        )}
 
       </animated.group>
 

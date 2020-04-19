@@ -25,7 +25,7 @@ const globalStateStore = new StateStore({
   isStateLoaded: false,
   userData: null,
   currentSection: null,
-  currentItemId: 5,
+  currentItemId: null,
   currentView: 'library',
   rotateLeftActive: false,
   rotateRightActive: false,

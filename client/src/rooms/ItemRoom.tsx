@@ -69,9 +69,11 @@ const ItemRoom: React.FC<IItemRoomProps> = ({itemId}) => {
 
   useEffect(() => {
 
-    setItemLoading(true);
-
     setAnnotation(null);
+
+    if (itemId === null) return;
+
+    setItemLoading(true);
 
     fetch(`${ITEM_LOCATION}/${itemId}/item.json`).then((resp) => {
       return resp.json();
