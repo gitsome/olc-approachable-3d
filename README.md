@@ -27,7 +27,7 @@ This demo stands up a `Node.js` server running as a Heroku app. The `Node.js` ca
 
 ### Content Authoring
 
-- [React360](https://facebook.github.io/react-360/)
+- [react-three-fiber](https://github.com/react-spring/react-three-fiber)
 
 ## Getting Started
 

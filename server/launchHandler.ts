@@ -26,6 +26,7 @@ export default (req: any, res: any, db: Loki) => {
 
   } else if (sectionId && sectionName) {
 
+    // this record is interpreted as a section entry
     const itemViewRecord = {user_id: user.user_id, sectionName: sectionName, sectionId: sectionId, itemId: null};
 
     const itemViews = db.getCollection("ITEM_VIEWS");
@@ -38,8 +39,6 @@ export default (req: any, res: any, db: Loki) => {
     return res.redirect(`/section/${sectionId}`);
 
   }
-
-  console.log('going to root');
 
   res.redirect('/');
 };
