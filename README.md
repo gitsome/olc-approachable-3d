@@ -55,13 +55,6 @@ To run this demo you will need to install Heroku and create an account.
 
 https://devcenter.heroku.com/articles/heroku-cli
 
-### Install React360 CLI
-
-This will allow you to create and compile new progressive 3D content. From the command line run:
-
-```bash
-yarn global add react-360-cli
-```
 
 ## Install Dependencies
 
