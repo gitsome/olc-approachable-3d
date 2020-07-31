@@ -11,6 +11,8 @@ import featurePolicy from 'feature-policy';
 
 import launchHandler from './launchHandler';
 import DevStrategy from './DevStrategy';
+import { IdToken } from './classes/IdToken';
+import ProtoLaunchStrategy from './ProtoLaunchStrategy';
 
 const isDev = process.env.dev && process.env.dev === 'true';
 
@@ -48,6 +50,7 @@ class AppServer {
   start () {
 
     passport.use(launchStrategy);
+    passport.use(new ProtoLaunchStrategy());
 
     // user serializtion / deserializtion
     passport.serializeUser((user, done) => {
@@ -99,6 +102,24 @@ class AppServer {
     } else {
       app.post('/launch', passport.authenticate('lti'), (req, res) => { return launchHandler(req, res, this.db); });
     }
+
+    app.post('/proto-launch', passport.authenticate("protolaunch"), (req, res) => {
+        if (!req.session) {
+          return res.status(500).send("protolaunch.invalid_session");
+        }
+
+        const idToken: IdToken = JSON.parse(req.body.id_token);
+        const customParams =
+          idToken["https://purl.imsglobal.org/spec/lti/claim/custom"];
+
+        req.session.save((err) => {
+          if (err) {
+            return res.status(500).send(err);
+          }
+          return launchHandler(req, res, this.db);
+        });
+      }
+    );
 
 
     /* ============ API REQUEST HANDLERS ============ */
