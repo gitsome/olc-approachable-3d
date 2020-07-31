@@ -165,7 +165,7 @@ class AppServer {
       res.redirect('/');
     });
 
-    app.post('/api/post', passport.authenticate("protolaunch"), (req, res) => {
+    app.post('/api/clear', passport.authenticate("protolaunch"), (req, res) => {
 
       if (req.session === undefined || req.session.passport === undefined) {
         throw new Error('invalid_user_session');
