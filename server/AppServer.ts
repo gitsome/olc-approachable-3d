@@ -165,6 +165,20 @@ class AppServer {
       res.redirect('/');
     });
 
+    app.post('/api/post', passport.authenticate("protolaunch"), (req, res) => {
+
+      if (req.session === undefined || req.session.passport === undefined) {
+        throw new Error('invalid_user_session');
+      }
+
+      const user = req.session.passport.user as any;
+
+      const itemViewsCollection = this.db.getCollection("ITEM_VIEWS");
+      const itemViews = itemViewsCollection.findAndRemove({user_id: user.user_id});
+
+      res.redirect('/');
+    });
+
 
     /* ============ STATIC FILES SERVER CONFIGS ============ */
 
